@@ -1,566 +1,852 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Actualités Geneva Hôtel Douala — Dernières nouvelles, événements, offres spéciales et vie de l'hôtel.">
-<title>Actualités — Geneva Hôtel Douala</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Actualités Geneva Hôtel Douala — Dernières nouvelles, événements, offres spéciales et vie de l'hôtel.">
+  <title>Actualités — Geneva Hôtel Douala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO ── */
+    .page-hero {
+      min-height: 52vh;
+      display: flex;
+      align-items: flex-end;
+      padding-top: var(--nav-h);
+      background: var(--deep);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
 
-/* ── HERO ── */
-.page-hero {
-  min-height: 52vh;
-  display: flex; align-items: flex-end;
-  padding-top: var(--nav-h);
-  background: var(--deep);
-  position: relative; overflow: hidden;
-  border-bottom: 1px solid var(--border);
-}
-.page-hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(201,168,92,0.06) 0%, transparent 60%);
-  pointer-events: none;
-}
-.page-hero-content {
-  position: relative; z-index: 2;
-  padding: 0 48px 72px;
-  max-width: 1320px; margin: 0 auto; width: 100%;
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;
-}
-.page-hero-content .eyebrow { display: flex; margin-bottom: 16px; }
-.page-title {
-  font-family: var(--serif);
-  font-size: clamp(3rem,6vw,5rem);
-  font-weight: 400; color: var(--white); line-height: 1;
-}
-.page-hero-right { text-align: right; flex-shrink: 0; }
-.hero-date {
-  font-size: 10px; font-weight: 500;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--text-dim);
-}
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201, 168, 92, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
 
-/* ── FILTER BAR ── */
-.filter-bar {
-  padding: 28px 0;
-  background: var(--warm);
-  border-bottom: 1px solid var(--border);
-  position: sticky; top: 64px; z-index: 50;
-}
-.filter-bar-inner {
-  max-width: 1320px; margin: 0 auto;
-  padding: 0 48px;
-  display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
-}
-.filter-tabs { display: flex; gap: 0; }
-.filter-tab {
-  padding: 10px 24px;
-  font-size: 10px; font-weight: 500;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--text-dim);
-  background: none; border: none;
-  cursor: pointer; transition: all 0.25s;
-  border-bottom: 2px solid transparent;
-}
-.filter-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-.filter-tab:hover:not(.active) { color: var(--cream); }
-.filter-count {
-  font-size: 10px; font-weight: 300;
-  color: var(--text-dim);
-}
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 48px 72px;
+      max-width: 1320px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+    }
 
-/* ── FEATURED ARTICLE ── */
-.featured-article { padding: 80px 0 0; }
-.featured-card {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 520px; overflow: hidden;
-  border: 1px solid var(--border);
-  transition: border-color 0.3s;
-  cursor: pointer;
-}
-.featured-card:hover { border-color: rgba(201,168,92,0.3); }
-.featured-visual { position: relative; overflow: hidden; }
-.featured-visual img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease);
-}
-.featured-card:hover .featured-visual img { transform: scale(1.04); }
-.featured-badge {
-  position: absolute; top: 24px; left: 24px;
-  background: var(--gold);
-  padding: 6px 16px;
-  font-size: 8px; font-weight: 500;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--black);
-}
-.featured-body {
-  background: var(--warm);
-  padding: 60px 60px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.featured-meta {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 20px;
-}
-.article-category {
-  font-size: 8px; font-weight: 500;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold);
-}
-.article-date {
-  font-size: 11px; font-weight: 300;
-  color: var(--text-dim);
-}
-.article-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border); }
-.featured-title {
-  font-family: var(--serif);
-  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-  font-weight: 400; color: var(--cream);
-  line-height: 1.2; margin-bottom: 20px;
-}
-.featured-excerpt {
-  font-size: 14px; font-weight: 300;
-  color: var(--text-dim); line-height: 1.9;
-  margin-bottom: 32px;
-}
-.article-read-more {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 9px; font-weight: 500;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold); transition: gap 0.3s;
-}
-.article-read-more::after { content: '→'; font-size: 14px; transition: transform 0.3s; }
-.article-read-more:hover { gap: 14px; }
-.article-read-more:hover::after { transform: translateX(3px); }
+    .page-hero-content .eyebrow {
+      display: flex;
+      margin-bottom: 16px;
+    }
 
-/* ── ARTICLES GRID ── */
-.articles-section { padding: 60px 0 120px; }
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-bottom: 60px;
-}
-.article-card {
-  background: var(--warm);
-  overflow: hidden;
-  cursor: pointer;
-  transition: background 0.3s;
-  display: flex; flex-direction: column;
-}
-.article-card:hover { background: var(--card); }
-.article-thumb {
-  width: 100%; aspect-ratio: 16/10;
-  overflow: hidden;
-}
-.article-thumb img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease);
-}
-.article-card:hover .article-thumb img { transform: scale(1.05); }
-.article-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
-.article-tag {
-  display: inline-block;
-  font-size: 8px; font-weight: 500;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gold);
-  padding: 4px 10px;
-  background: var(--gold-dim);
-  border: 1px solid var(--border);
-  margin-bottom: 14px;
-  align-self: flex-start;
-}
-.article-title {
-  font-family: var(--serif);
-  font-size: 20px; font-weight: 400;
-  color: var(--cream); line-height: 1.25;
-  margin-bottom: 12px;
-  flex: 1;
-}
-.article-excerpt {
-  font-size: 12px; font-weight: 300;
-  color: var(--text-dim); line-height: 1.8;
-  margin-bottom: 20px;
-}
-.article-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-.article-footer-date { font-size: 10px; font-weight: 300; color: var(--text-dim); }
-.article-footer-link {
-  font-size: 9px; font-weight: 500;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--gold); transition: opacity 0.25s;
-}
-.article-footer-link:hover { opacity: 0.7; }
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+    }
 
-/* Pagination */
-.pagination {
-  display: flex; justify-content: center; align-items: center; gap: 4px;
-  padding-top: 40px;
-}
-.page-btn {
-  width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 400;
-  color: var(--text-dim);
-  background: var(--warm); border: 1px solid var(--border);
-  cursor: pointer; transition: all 0.25s;
-}
-.page-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.2); }
-.page-btn.active { background: var(--gold); color: var(--black); border-color: var(--gold); }
-.page-btn.arrow { font-size: 16px; }
+    .page-hero-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
 
-/* Newsletter */
-.newsletter-section {
-  background: var(--warm);
-  border-top: 1px solid var(--border);
-  padding: 80px 0;
-}
-.newsletter-inner {
-  max-width: 600px; margin: 0 auto; text-align: center;
-}
-.newsletter-inner h2 {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 400; color: var(--cream);
-  margin: 20px 0 12px;
-}
-.newsletter-inner p {
-  font-size: 14px; font-weight: 300;
-  color: var(--text-dim); line-height: 1.8; margin-bottom: 32px;
-}
-.newsletter-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
-.newsletter-input {
-  flex: 1;
-  background: var(--black);
-  border: 1px solid var(--border);
-  border-right: none;
-  color: var(--cream);
-  padding: 14px 20px;
-  font-family: var(--sans);
-  font-size: 13px; font-weight: 300;
-  transition: border-color 0.25s;
-}
-.newsletter-input:focus { border-color: rgba(201,168,92,0.4); outline: none; }
-.newsletter-input::placeholder { color: var(--text-dim); }
-.newsletter-btn {
-  padding: 14px 28px;
-  background: var(--gold); color: var(--black);
-  border: 1px solid var(--gold);
-  font-family: var(--sans);
-  font-size: 9px; font-weight: 500;
-  letter-spacing: 2px; text-transform: uppercase;
-  cursor: pointer; transition: background 0.3s; white-space: nowrap;
-}
-.newsletter-btn:hover { background: var(--gold2); }
+    .hero-date {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .featured-card { grid-template-columns: 1fr; min-height: auto; }
-  .featured-body { padding: 40px 40px; }
-  .articles-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 768px) {
-  .page-hero-content { padding: 0 24px 60px; flex-direction: column; align-items: flex-start; }
-  .filter-bar-inner { padding: 0 24px; flex-direction: column; align-items: flex-start; }
-  .articles-grid { grid-template-columns: 1fr; }
-  .newsletter-form { flex-direction: column; }
-  .newsletter-input { border-right: 1px solid var(--border); border-bottom: none; }
-  .newsletter-btn { width: 100%; text-align: center; }
-}
-</style>
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      padding: 28px 0;
+      background: var(--warm);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 64px;
+      z-index: 50;
+    }
+
+    .filter-bar-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0;
+    }
+
+    .filter-tab {
+      padding: 10px 24px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      border-bottom: 2px solid transparent;
+    }
+
+    .filter-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .filter-tab:hover:not(.active) {
+      color: var(--cream);
+    }
+
+    .filter-count {
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--text-dim);
+    }
+
+    /* ── FEATURED ARTICLE ── */
+    .featured-article {
+      padding: 80px 0 0;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+      cursor: pointer;
+    }
+
+    .featured-card:hover {
+      border-color: rgba(201, 168, 92, 0.3);
+    }
+
+    .featured-visual {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease);
+    }
+
+    .featured-card:hover .featured-visual img {
+      transform: scale(1.04);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: var(--gold);
+      padding: 6px 16px;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .featured-body {
+      background: var(--warm);
+      padding: 60px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .article-category {
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .article-date {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-dim);
+    }
+
+    .article-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .featured-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .featured-excerpt {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .article-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: gap 0.3s;
+    }
+
+    .article-read-more::after {
+      content: '→';
+      font-size: 14px;
+      transition: transform 0.3s;
+    }
+
+    .article-read-more:hover {
+      gap: 14px;
+    }
+
+    .article-read-more:hover::after {
+      transform: translateX(3px);
+    }
+
+    /* ── ARTICLES GRID ── */
+    .articles-section {
+      padding: 60px 0 120px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 60px;
+    }
+
+    .article-card {
+      background: var(--warm);
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      background: var(--card);
+    }
+
+    .article-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .article-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .article-card:hover .article-thumb img {
+      transform: scale(1.05);
+    }
+
+    .article-body {
+      padding: 28px 28px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 4px 10px;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .article-excerpt {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .article-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .article-footer-date {
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--text-dim);
+    }
+
+    .article-footer-link {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: opacity 0.25s;
+    }
+
+    .article-footer-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      padding-top: 40px;
+    }
+
+    .page-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-dim);
+      background: var(--warm);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .page-btn:hover {
+      color: var(--cream);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .page-btn.active {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .page-btn.arrow {
+      font-size: 16px;
+    }
+
+    /* Newsletter */
+    .newsletter-section {
+      background: var(--warm);
+      border-top: 1px solid var(--border);
+      padding: 80px 0;
+    }
+
+    .newsletter-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-inner h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 400;
+      color: var(--cream);
+      margin: 20px 0 12px;
+    }
+
+    .newsletter-inner p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      background: var(--black);
+      border: 1px solid var(--border);
+      border-right: none;
+      color: var(--cream);
+      padding: 14px 20px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 300;
+      transition: border-color 0.25s;
+    }
+
+    .newsletter-input:focus {
+      border-color: rgba(201, 168, 92, 0.4);
+      outline: none;
+    }
+
+    .newsletter-input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .newsletter-btn {
+      padding: 14px 28px;
+      background: var(--gold);
+      color: var(--black);
+      border: 1px solid var(--gold);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .newsletter-btn:hover {
+      background: var(--gold2);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .featured-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .featured-body {
+        padding: 40px 40px;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-hero-content {
+        padding: 0 24px 60px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .filter-bar-inner {
+        padding: 0 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-input {
+        border-right: 1px solid var(--border);
+        border-bottom: none;
+      }
+
+      .newsletter-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav id="nav">
-  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
-  <ul class="nav-links">
-    <li><a href="hebergement.html">Hébergement</a></li>
-    <li><a href="restaurant.html">Restaurant</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="evenements.html">Événements</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <span class="nav-lang">FR | EN</span>
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="hebergement.html">Hébergement</a></li>
+      <li><a href="restaurant.html">Restaurant</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="evenements.html">Événements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-lang">FR | EN</span>
+      <a href="contact.html#booking" class="nav-cta">Réserver</a>
+    </div>
+    <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-drawer" id="drawer">
+    <a href="hebergement.html">Hébergement</a>
+    <a href="restaurant.html">Restaurant</a>
+    <a href="services.html">Services</a>
+    <a href="evenements.html">Événements</a>
+    <a href="contact.html">Contact</a>
     <a href="contact.html#booking" class="nav-cta">Réserver</a>
   </div>
-  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="nav-drawer" id="drawer">
-  <a href="hebergement.html">Hébergement</a>
-  <a href="restaurant.html">Restaurant</a>
-  <a href="services.html">Services</a>
-  <a href="evenements.html">Événements</a>
-  <a href="contact.html">Contact</a>
-  <a href="contact.html#booking" class="nav-cta">Réserver</a>
-</div>
 
-<!-- HERO -->
-<section class="page-hero">
-  <div class="page-hero-content">
-    <div>
-      <div class="eyebrow">Blog & Nouvelles</div>
-      <h1 class="page-title">Actualités</h1>
-    </div>
-    <div class="page-hero-right">
-      <div class="hero-date">Dernière mise à jour · Septembre 2023</div>
-    </div>
-  </div>
-</section>
-
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <div class="filter-bar-inner">
-    <div class="filter-tabs">
-      <button class="filter-tab active" data-cat="all">Tout</button>
-      <button class="filter-tab" data-cat="actualites">Actualités</button>
-      <button class="filter-tab" data-cat="evenements">Événements</button>
-      <button class="filter-tab" data-cat="offres">Offres</button>
-      <button class="filter-tab" data-cat="vie">Vie de l'hôtel</button>
-    </div>
-    <div class="filter-count" id="articleCount">6 articles</div>
-  </div>
-</div>
-
-<!-- FEATURED -->
-<section class="featured-article">
-  <div class="container">
-    <div class="featured-card" data-reveal="up">
-      <div class="featured-visual">
-        <img
-          src="https://images.unsplash.com/photo-1540541338537-1220205a3bfe?w=900&q=80&auto=format&fit=crop"
-          alt="Équipe nationale Burundi" loading="lazy" width="900" height="600">
-        <span class="featured-badge">À la une</span>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <div>
+        <div class="eyebrow">Blog & Nouvelles</div>
+        <h1 class="page-title">Actualités</h1>
       </div>
-      <div class="featured-body">
-        <div class="featured-meta">
-          <span class="article-category">Actualités</span>
-          <span class="article-dot"></span>
-          <span class="article-date">6 septembre 2023</span>
-        </div>
-        <h2 class="featured-title">L'équipe Nationale de Football du Burundi fait son nid au Geneva Hotel</h2>
-        <p class="featured-excerpt">Geneva Hôtel a eu l'honneur d'accueillir la sélection nationale de football du Burundi lors de sa participation au tournoi de Douala. Pendant une semaine, l'équipe a bénéficié de nos chambres, de notre restauration et de nos installations sportives pour préparer leurs matches dans les meilleures conditions.</p>
-        <a href="#" class="article-read-more">Lire l'article</a>
+      <div class="page-hero-right">
+        <div class="hero-date">Dernière mise à jour · Septembre 2023</div>
       </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-cat="all">Tout</button>
+        <button class="filter-tab" data-cat="actualites">Actualités</button>
+        <button class="filter-tab" data-cat="evenements">Événements</button>
+        <button class="filter-tab" data-cat="offres">Offres</button>
+        <button class="filter-tab" data-cat="vie">Vie de l'hôtel</button>
+      </div>
+      <div class="filter-count" id="articleCount">6 articles</div>
     </div>
   </div>
-</section>
 
-<!-- ARTICLES GRID -->
-<section class="articles-section">
-  <div class="container">
-    <div class="articles-grid" id="articlesGrid">
-
-      <div class="article-card" data-cat="evenements" data-reveal="up">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80&auto=format&fit=crop" alt="AUF Entrepreneuriat" loading="lazy" width="600" height="375">
+  <!-- FEATURED -->
+  <section class="featured-article">
+    <div class="container">
+      <div class="featured-card" data-reveal="up">
+        <div class="featured-visual">
+          <img src="burundi.jpg" alt="Équipe nationale Burundi" loading="lazy" width="900" height="600">
+          <span class="featured-badge">À la une</span>
         </div>
-        <div class="article-body">
-          <span class="article-tag">Événements</span>
-          <h3 class="article-title">Geneva Hotel accueille une délégation de l'AUF pour une compétition sur l'entrepreneuriat</h3>
-          <p class="article-excerpt">L'Agence Universitaire de la Francophonie a choisi Geneva Hôtel pour accueillir sa compétition régionale sur l'entrepreneuriat. Trois jours d'ateliers, de pitches et de réseautage sous notre toit.</p>
-          <div class="article-footer">
-            <span class="article-footer-date">29 juin 2023</span>
-            <a href="#" class="article-footer-link">Lire →</a>
+        <div class="featured-body">
+          <div class="featured-meta">
+            <span class="article-category">Actualités</span>
+            <span class="article-dot"></span>
+            <span class="article-date">6 septembre 2023</span>
           </div>
+          <h2 class="featured-title">L'équipe Nationale de Football du Burundi fait son nid au Geneva Hotel</h2>
+          <p class="featured-excerpt">Geneva Hôtel a eu l'honneur d'accueillir la sélection nationale de football du
+            Burundi lors de sa participation au tournoi de Douala. Pendant une semaine, l'équipe a bénéficié de nos
+            chambres, de notre restauration et de nos installations sportives pour préparer leurs matches dans les
+            meilleures conditions.</p>
+          <a href="#" class="article-read-more">Lire l'article</a>
         </div>
       </div>
-
-      <div class="article-card" data-cat="vie" data-reveal="up" data-delay="1">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&q=80&auto=format&fit=crop" alt="Formation sécurité incendie" loading="lazy" width="600" height="375">
-        </div>
-        <div class="article-body">
-          <span class="article-tag">Vie de l'hôtel</span>
-          <h3 class="article-title">Le personnel de Geneva Hotel se forme à la sécurité incendie</h3>
-          <p class="article-excerpt">La sécurité de nos clients est notre priorité absolue. Notre équipe entière a participé à une formation complète sur la prévention des risques incendie et les procédures d'évacuation.</p>
-          <div class="article-footer">
-            <span class="article-footer-date">15 mai 2023</span>
-            <a href="#" class="article-footer-link">Lire →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-card" data-cat="offres" data-reveal="up" data-delay="2">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80&auto=format&fit=crop" alt="Offre spéciale suite" loading="lazy" width="600" height="375">
-        </div>
-        <div class="article-body">
-          <span class="article-tag">Offres</span>
-          <h3 class="article-title">Offre exclusive : Suite Prestige à prix spécial pour les résidents camerounais</h3>
-          <p class="article-excerpt">À l'occasion des fêtes nationales, Geneva Hôtel lance une offre exclusive réservée aux résidents camerounais : la Suite Prestige à tarif préférentiel pour tout séjour de 2 nuits minimum.</p>
-          <div class="article-footer">
-            <span class="article-footer-date">20 avril 2023</span>
-            <a href="#" class="article-footer-link">Lire →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-card" data-cat="actualites" data-reveal="up">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format&fit=crop" alt="Nouveau menu Le Sylvania" loading="lazy" width="600" height="375">
-        </div>
-        <div class="article-body">
-          <span class="article-tag">Actualités</span>
-          <h3 class="article-title">Le Sylvania dévoile sa nouvelle carte : un voyage gastronomique au cœur de l'Afrique</h3>
-          <p class="article-excerpt">Notre chef executive a repensé intégralement la carte du restaurant Le Sylvania. Nouveaux plats signature, ingrédients 100% locaux, et des créations fusion qui célèbrent la richesse culinaire camerounaise.</p>
-          <div class="article-footer">
-            <span class="article-footer-date">10 mars 2023</span>
-            <a href="#" class="article-footer-link">Lire →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-card" data-cat="vie" data-reveal="up" data-delay="1">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&q=80&auto=format&fit=crop" alt="Inauguration rooftop" loading="lazy" width="600" height="375">
-        </div>
-        <div class="article-body">
-          <span class="article-tag">Vie de l'hôtel</span>
-          <h3 class="article-title">Inauguration du rooftop piscine : une soirée mémorable sous les étoiles de Douala</h3>
-          <p class="article-excerpt">C'est sous un ciel étoilé exceptionnel que Geneva Hôtel a inauguré son rooftop piscine panoramique. Plus de 150 invités ont célébré l'ouverture de ce nouvel espace avec des cocktails signature et de la musique live.</p>
-          <div class="article-footer">
-            <span class="article-footer-date">18 janvier 2023</span>
-            <a href="#" class="article-footer-link">Lire →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="article-card" data-cat="offres" data-reveal="up" data-delay="2">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80&auto=format&fit=crop" alt="Package spa" loading="lazy" width="600" height="375">
-        </div>
-        <div class="article-body">
-          <span class="article-tag">Offres</span>
-          <h3 class="article-title">Nouveau package « Escapade bien-être » : spa, chambre et dîner romantique</h3>
-          <p class="article-excerpt">Offrez-vous ou offrez à vos proches une parenthèse de luxe avec notre tout nouveau package Escapade Bien-être. Massage duo, nuit en Suite Deluxe et dîner en tête-à-tête au Sylvania.</p>
-          <div class="article-footer">
-            <span class="article-footer-date">5 décembre 2022</span>
-            <a href="#" class="article-footer-link">Lire →</a>
-          </div>
-        </div>
-      </div>
-
     </div>
+  </section>
 
-    <!-- Pagination -->
-    <div class="pagination">
-      <button class="page-btn arrow">‹</button>
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <button class="page-btn arrow">›</button>
+  <!-- ARTICLES GRID -->
+  <section class="articles-section">
+    <div class="container">
+      <div class="articles-grid" id="articlesGrid">
+
+        <div class="article-card" data-cat="evenements" data-reveal="up">
+          <div class="article-thumb">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80&auto=format&fit=crop"
+              alt="AUF Entrepreneuriat" loading="lazy" width="600" height="375">
+          </div>
+          <div class="article-body">
+            <span class="article-tag">Événements</span>
+            <h3 class="article-title">Geneva Hotel accueille une délégation de l'AUF pour une compétition sur
+              l'entrepreneuriat</h3>
+            <p class="article-excerpt">L'Agence Universitaire de la Francophonie a choisi Geneva Hôtel pour accueillir
+              sa compétition régionale sur l'entrepreneuriat. Trois jours d'ateliers, de pitches et de réseautage sous
+              notre toit.</p>
+            <div class="article-footer">
+              <span class="article-footer-date">29 juin 2023</span>
+              <a href="#" class="article-footer-link">Lire →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card" data-cat="vie" data-reveal="up" data-delay="1">
+          <div class="article-thumb">
+            <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&q=80&auto=format&fit=crop"
+              alt="Formation sécurité incendie" loading="lazy" width="600" height="375">
+          </div>
+          <div class="article-body">
+            <span class="article-tag">Vie de l'hôtel</span>
+            <h3 class="article-title">Le personnel de Geneva Hotel se forme à la sécurité incendie</h3>
+            <p class="article-excerpt">La sécurité de nos clients est notre priorité absolue. Notre équipe entière a
+              participé à une formation complète sur la prévention des risques incendie et les procédures d'évacuation.
+            </p>
+            <div class="article-footer">
+              <span class="article-footer-date">15 mai 2023</span>
+              <a href="#" class="article-footer-link">Lire →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card" data-cat="offres" data-reveal="up" data-delay="2">
+          <div class="article-thumb">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80&auto=format&fit=crop"
+              alt="Offre spéciale suite" loading="lazy" width="600" height="375">
+          </div>
+          <div class="article-body">
+            <span class="article-tag">Offres</span>
+            <h3 class="article-title">Offre exclusive : Suite Prestige à prix spécial pour les résidents camerounais
+            </h3>
+            <p class="article-excerpt">À l'occasion des fêtes nationales, Geneva Hôtel lance une offre exclusive
+              réservée aux résidents camerounais : la Suite Prestige à tarif préférentiel pour tout séjour de 2 nuits
+              minimum.</p>
+            <div class="article-footer">
+              <span class="article-footer-date">20 avril 2023</span>
+              <a href="#" class="article-footer-link">Lire →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card" data-cat="actualites" data-reveal="up">
+          <div class="article-thumb">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format&fit=crop"
+              alt="Nouveau menu Le Sylvania" loading="lazy" width="600" height="375">
+          </div>
+          <div class="article-body">
+            <span class="article-tag">Actualités</span>
+            <h3 class="article-title">Le Sylvania dévoile sa nouvelle carte : un voyage gastronomique au cœur de
+              l'Afrique</h3>
+            <p class="article-excerpt">Notre chef executive a repensé intégralement la carte du restaurant Le Sylvania.
+              Nouveaux plats signature, ingrédients 100% locaux, et des créations fusion qui célèbrent la richesse
+              culinaire camerounaise.</p>
+            <div class="article-footer">
+              <span class="article-footer-date">10 mars 2023</span>
+              <a href="#" class="article-footer-link">Lire →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card" data-cat="vie" data-reveal="up" data-delay="1">
+          <div class="article-thumb">
+            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&q=80&auto=format&fit=crop"
+              alt="Inauguration rooftop" loading="lazy" width="600" height="375">
+          </div>
+          <div class="article-body">
+            <span class="article-tag">Vie de l'hôtel</span>
+            <h3 class="article-title">Inauguration du rooftop piscine : une soirée mémorable sous les étoiles de Douala
+            </h3>
+            <p class="article-excerpt">C'est sous un ciel étoilé exceptionnel que Geneva Hôtel a inauguré son rooftop
+              piscine panoramique. Plus de 150 invités ont célébré l'ouverture de ce nouvel espace avec des cocktails
+              signature et de la musique live.</p>
+            <div class="article-footer">
+              <span class="article-footer-date">18 janvier 2023</span>
+              <a href="#" class="article-footer-link">Lire →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card" data-cat="offres" data-reveal="up" data-delay="2">
+          <div class="article-thumb">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80&auto=format&fit=crop"
+              alt="Package spa" loading="lazy" width="600" height="375">
+          </div>
+          <div class="article-body">
+            <span class="article-tag">Offres</span>
+            <h3 class="article-title">Nouveau package « Escapade bien-être » : spa, chambre et dîner romantique</h3>
+            <p class="article-excerpt">Offrez-vous ou offrez à vos proches une parenthèse de luxe avec notre tout
+              nouveau package Escapade Bien-être. Massage duo, nuit en Suite Deluxe et dîner en tête-à-tête au Sylvania.
+            </p>
+            <div class="article-footer">
+              <span class="article-footer-date">5 décembre 2022</span>
+              <a href="#" class="article-footer-link">Lire →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn arrow">‹</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn arrow">›</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter-section">
-  <div class="container">
-    <div class="newsletter-inner" data-reveal="up">
-      <div class="eyebrow" style="display:inline-flex;margin:0 auto 16px">Restez informé</div>
-      <h2>Ne manquez aucune<br>actualité</h2>
-      <p>Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives, actualités et invitations aux événements de Geneva Hôtel.</p>
-      <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-        <input
-          class="newsletter-input"
-          type="email"
-          placeholder="votre@email.com"
-          required>
-        <button type="submit" class="newsletter-btn">S'inscrire</button>
-      </form>
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-inner" data-reveal="up">
+        <div class="eyebrow" style="display:inline-flex;margin:0 auto 16px">Restez informé</div>
+        <h2>Ne manquez aucune<br>actualité</h2>
+        <p>Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives, actualités et invitations aux
+          événements de Geneva Hôtel.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input class="newsletter-input" type="email" placeholder="votre@email.com" required>
+          <button type="submit" class="newsletter-btn">S'inscrire</button>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="footer-brand-name">Geneva<em>.</em></span>
-        <p>Votre havre de confort et de beauté tropicale au cœur de Douala. Home in better — depuis 2019.</p>
-        <div class="footer-socials">
-          <a href="https://facebook.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">f</a>
-          <a href="https://instagram.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">ig</a>
-          <a href="https://twitter.com/genevahotel237" class="footer-social" target="_blank" rel="noopener">𝕏</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-brand-name">Geneva<em>.</em></span>
+          <p>Votre havre de confort et de beauté tropicale au cœur de Douala. Home in better — depuis 2019.</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">f</a>
+            <a href="https://instagram.com/genevahoteldouala" class="footer-social" target="_blank"
+              rel="noopener">ig</a>
+            <a href="https://twitter.com/genevahotel237" class="footer-social" target="_blank" rel="noopener">𝕏</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Hôtel</div>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="hebergement.html">Chambres</a></li>
+            <li><a href="restaurant.html">Restaurant</a></li>
+            <li><a href="services.html">Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">À Propos</div>
+          <ul>
+            <li><a href="a-propos.html">Notre Histoire</a></li>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li>
+            <li><a href="mailto:contact@genevahoteldouala.com">contact@genevahoteldouala.com</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-col"><div class="footer-col-title">Hôtel</div><ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="hebergement.html">Chambres</a></li>
-        <li><a href="restaurant.html">Restaurant</a></li>
-        <li><a href="services.html">Services</a></li>
-      </ul></div>
-      <div class="footer-col"><div class="footer-col-title">À Propos</div><ul>
-        <li><a href="a-propos.html">Notre Histoire</a></li>
-        <li><a href="actualites.html">Actualités</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul></div>
-      <div class="footer-col"><div class="footer-col-title">Contact</div><ul>
-        <li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li>
-        <li><a href="mailto:contact@genevahoteldouala.com">contact@genevahoteldouala.com</a></li>
-      </ul></div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span> — Tous droits réservés.
+        </div>
+        <div class="footer-copy"><a href="#" style="margin-right:20px">Mentions légales</a><a
+            href="#">Confidentialité</a></div>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span> — Tous droits réservés.</div>
-      <div class="footer-copy"><a href="#" style="margin-right:20px">Mentions légales</a><a href="#">Confidentialité</a></div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+  <a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
 
-<script src="main.js"></script>
-<script>
-// ── Category filter ──────────────────────────
-const tabs = document.querySelectorAll('.filter-tab');
-const cards = document.querySelectorAll('.article-card');
-const count = document.getElementById('articleCount');
+  <script src="main.js"></script>
+  <script>
+    // ── Category filter ──────────────────────────
+    const tabs = document.querySelectorAll('.filter-tab');
+    const cards = document.querySelectorAll('.article-card');
+    const count = document.getElementById('articleCount');
 
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const cat = tab.dataset.cat;
-    let visible = 0;
-    cards.forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) {
-        card.style.display = '';
-        visible++;
-      } else {
-        card.style.display = 'none';
-      }
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const cat = tab.dataset.cat;
+        let visible = 0;
+        cards.forEach(card => {
+          if (cat === 'all' || card.dataset.cat === cat) {
+            card.style.display = '';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        count.textContent = visible + ' article' + (visible > 1 ? 's' : '');
+      });
     });
-    count.textContent = visible + ' article' + (visible > 1 ? 's' : '');
-  });
-});
 
-// ── Newsletter ──────────────────────────────
-function handleNewsletter(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.newsletter-btn');
-  const input = e.target.querySelector('.newsletter-input');
-  btn.textContent = '✓ Inscrit !';
-  btn.style.background = '#00c57a';
-  input.value = '';
-  setTimeout(() => {
-    btn.textContent = "S'inscrire";
-    btn.style.background = '';
-  }, 3000);
-}
-</script>
+    // ── Newsletter ──────────────────────────────
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.newsletter-btn');
+      const input = e.target.querySelector('.newsletter-input');
+      btn.textContent = '✓ Inscrit !';
+      btn.style.background = '#00c57a';
+      input.value = '';
+      setTimeout(() => {
+        btn.textContent = "S'inscrire";
+        btn.style.background = '';
+      }, 3000);
+    }
+  </script>
 </body>
+
 </html>
