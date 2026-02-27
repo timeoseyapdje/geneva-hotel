@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Événements & Réunions Geneva Hôtel Douala — Salles de conférence, mariages, séminaires d'entreprise.">
+<title>Événements — Geneva Hôtel Douala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { height: 65vh; min-height: 520px; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,9,6,0.3), rgba(11,9,6,0.88)); }
+.page-hero-content { position: relative; z-index: 2; padding: 0 48px 80px; max-width: 1320px; margin: 0 auto; width: 100%; }
+.page-hero-content .eyebrow { display: flex; margin-bottom: 16px; }
+.page-title { font-family: var(--serif); font-size: clamp(3rem,6vw,5.5rem); font-weight: 400; color: var(--white); line-height: 1; }
+
+/* Spaces */
+.spaces-section { padding: 100px 0; }
+.spaces-header { margin-bottom: 70px; }
+.spaces-header h2 { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3rem); font-weight: 400; color: var(--cream); margin: 20px 0 16px; }
+.spaces-header p { font-size: 15px; font-weight: 300; color: var(--text-dim); line-height: 1.9; max-width: 600px; }
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.space-card { position: relative; overflow: hidden; cursor: pointer; }
+.space-card.large { aspect-ratio: 4/3; }
+.space-card.small { aspect-ratio: 3/4; }
+.space-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; }
+.space-card:hover img { transform: scale(1.05); }
+.space-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,9,6,0.9) 0%, rgba(11,9,6,0.2) 50%, transparent 100%); }
+.space-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px; }
+.space-tag { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+.space-name { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+.space-cap { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); }
+
+/* Event types */
+.event-types { padding: 0 0 120px; }
+.event-types-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+.event-type {
+  background: var(--warm);
+  padding: 52px 36px;
+  border-bottom: 2px solid transparent;
+  transition: background 0.35s, border-color 0.35s;
+  cursor: default;
+}
+.event-type:hover { background: var(--card); border-bottom-color: var(--gold); }
+.event-type-icon { font-size: 32px; display: block; margin-bottom: 20px; }
+.event-type-name { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--cream); margin-bottom: 12px; }
+.event-type-desc { font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.85; }
+.event-type-cap { font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-top: 16px; display: block; }
+
+/* CTA enquire */
+.enquire-section {
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  padding: 100px 0;
+  text-align: center;
+}
+.enquire-section h2 { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3rem); font-weight: 400; color: var(--cream); margin: 20px 0 16px; }
+.enquire-section p { font-size: 14px; font-weight: 300; color: var(--text-dim); line-height: 1.9; max-width: 500px; margin: 0 auto 40px; }
+.enquire-contacts { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border); }
+.enquire-contact-label { font-size: 8px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+.enquire-contact-val { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--cream); transition: color 0.25s; }
+.enquire-contact-val:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .spaces-grid { grid-template-columns: 1fr; }
+  .space-card.large, .space-card.small { aspect-ratio: 16/9; }
+  .event-types-grid { grid-template-columns: 1fr 1fr; }
+  .page-hero-content { padding: 0 24px 60px; }
+}
+@media (max-width: 600px) {
+  .event-types-grid { grid-template-columns: 1fr; }
+  .enquire-contacts { gap: 32px; }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="hebergement.html">Hébergement</a></li>
+    <li><a href="restaurant.html">Restaurant</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="evenements.html" class="active">Événements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">FR | EN</span>
+    <a href="contact.html#booking" class="nav-cta">Réserver</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-drawer" id="drawer">
+  <a href="hebergement.html">Hébergement</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="services.html">Services</a>
+  <a href="evenements.html">Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#booking" class="nav-cta">Réserver</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1800&q=80&auto=format&fit=crop" alt="Salle événements Geneva Hôtel" fetchpriority="high" width="1800" height="1200">
+  </div>
+  <div class="page-hero-content">
+    <div class="eyebrow">Réunions & Célébrations</div>
+    <h1 class="page-title">Événements<br>& Séminaires</h1>
+  </div>
+</section>
+
+<section class="spaces-section">
+  <div class="container">
+    <div class="spaces-header" data-reveal="up">
+      <div class="eyebrow">Nos espaces</div>
+      <h2>Des lieux à la hauteur<br>de vos ambitions</h2>
+      <p>Du séminaire d'entreprise au mariage somptueux, Geneva Hôtel dispose d'espaces modulables et raffinés pour faire de chaque événement un moment inoubliable.</p>
+    </div>
+
+    <div class="spaces-grid" data-reveal="up">
+      <div class="space-card large">
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&q=80&auto=format&fit=crop" alt="Grande salle de conférence" loading="lazy" width="900" height="675">
+        <div class="space-card-overlay"></div>
+        <div class="space-card-body">
+          <span class="space-tag">Salle principale</span>
+          <div class="space-name">Le Grand Salon</div>
+          <div class="space-cap">Jusqu'à 200 personnes · Scène · Projecteur 4K</div>
+        </div>
+      </div>
+      <div class="space-card small">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80&auto=format&fit=crop" alt="Salle de réunion" loading="lazy" width="600" height="800">
+        <div class="space-card-overlay"></div>
+        <div class="space-card-body">
+          <span class="space-tag">Réunion</span>
+          <div class="space-name">Salle Ndogbong</div>
+          <div class="space-cap">20 personnes · Table U</div>
+        </div>
+      </div>
+      <div class="space-card small">
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80&auto=format&fit=crop" alt="Terrasse événements" loading="lazy" width="600" height="800">
+        <div class="space-card-overlay"></div>
+        <div class="space-card-body">
+          <span class="space-tag">Rooftop</span>
+          <div class="space-name">Terrasse Panoramique</div>
+          <div class="space-cap">100 personnes · Cocktails</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="event-types">
+  <div class="container">
+    <div class="event-types-grid">
+      <div class="event-type" data-reveal="up">
+        <span class="event-type-icon">🤝</span>
+        <div class="event-type-name">Réunions d'affaires</div>
+        <div class="event-type-desc">Salles équipées avec WiFi haut débit, vidéoprojecteur, paperboard et service traiteur. Configuration flexible selon vos besoins.</div>
+        <span class="event-type-cap">5 – 50 personnes</span>
+      </div>
+      <div class="event-type" data-reveal="up" data-delay="1">
+        <span class="event-type-icon">🎓</span>
+        <div class="event-type-name">Séminaires & Formations</div>
+        <div class="event-type-desc">Espaces modulables pour vos formations professionnelles. Hébergement des participants, restauration et pause-café inclus.</div>
+        <span class="event-type-cap">20 – 100 personnes</span>
+      </div>
+      <div class="event-type" data-reveal="up" data-delay="2">
+        <span class="event-type-icon">💒</span>
+        <div class="event-type-name">Mariages & Cérémonies</div>
+        <div class="event-type-desc">Célébrez votre union dans un cadre luxueux. Décoration sur mesure, traiteur gastronomique, music live, suite nuptiale.</div>
+        <span class="event-type-cap">50 – 200 personnes</span>
+      </div>
+      <div class="event-type" data-reveal="up" data-delay="3">
+        <span class="event-type-icon">🥂</span>
+        <div class="event-type-name">Cocktails & Lancements</div>
+        <div class="event-type-desc">Terrasse rooftop pour vos soirées de gala, lancements de produits et anniversaires d'entreprise avec vue sur la ville.</div>
+        <span class="event-type-cap">30 – 150 personnes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enquire-section">
+  <div class="container">
+    <div class="eyebrow" style="display:inline-flex;margin:0 auto 16px" data-reveal="up">Demande de devis</div>
+    <h2 data-reveal="up" data-delay="1">Organisons ensemble<br>votre événement</h2>
+    <p data-reveal="up" data-delay="2">Notre équipe événementielle vous accompagne de la conception à la réalisation. Contactez-nous pour un devis personnalisé gratuit.</p>
+    <div data-reveal="up" data-delay="3">
+      <a href="contact.html" class="btn btn-gold"><span>Demander un devis</span></a>
+    </div>
+    <div class="enquire-contacts" data-reveal="up" data-delay="4">
+      <div>
+        <span class="enquire-contact-label">Événements</span>
+        <a href="tel:+237659898989" class="enquire-contact-val">+237 6 59 89 89 89</a>
+      </div>
+      <div>
+        <span class="enquire-contact-label">Email</span>
+        <a href="mailto:evenements@genevahoteldouala.com" class="enquire-contact-val" style="font-size:14px">evenements@genevahoteldouala.com</a>
+      </div>
+      <div>
+        <span class="enquire-contact-label">WhatsApp</span>
+        <a href="https://wa.me/237659898989" class="enquire-contact-val">+237 6 52 18 52 18</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><span class="footer-brand-name">Geneva<em>.</em></span><p>Votre havre de confort et de beauté tropicale au cœur de Douala.</p><div class="footer-socials"><a href="#" class="footer-social">f</a><a href="#" class="footer-social">ig</a><a href="#" class="footer-social">𝕏</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Hôtel</div><ul><li><a href="index.html">Accueil</a></li><li><a href="hebergement.html">Chambres</a></li><li><a href="restaurant.html">Restaurant</a></li><li><a href="services.html">Services</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><ul><li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li><li><a href="mailto:reservation@genevahoteldouala.com">reservation@genevahoteldouala.com</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Réserver</div><ul><li><a href="contact.html#booking">Disponibilités</a></li><li><a href="contact.html">Nous contacter</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span></div><div class="footer-copy"><a href="#">Mentions légales</a></div></div>
+  </div>
+</footer>
+<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script src="main.js"></script>
+</body>
+</html>

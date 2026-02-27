@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contactez Geneva Hôtel Douala — Réservez votre chambre, renseignez-vous sur nos services. +237 6 59 89 89 89">
+<title>Contact & Réservation — Geneva Hôtel Douala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-hero {
+  min-height: 50vh;
+  display: flex; align-items: flex-end;
+  padding-top: var(--nav-h);
+  background: var(--deep);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(201,168,92,0.05) 0%, transparent 70%);
+}
+.contact-hero-content { position: relative; z-index: 2; padding: 0 48px 72px; max-width: 1320px; margin: 0 auto; width: 100%; }
+.contact-hero-content .eyebrow { display: flex; margin-bottom: 16px; }
+.page-title { font-family: var(--serif); font-size: clamp(3rem,6vw,5rem); font-weight: 400; color: var(--white); line-height: 1; }
+
+/* Contact layout */
+.contact-main { padding: 100px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+
+/* Info side */
+.contact-info h3 { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--cream); margin-bottom: 36px; }
+.contact-block { margin-bottom: 36px; }
+.contact-block-label { font-size: 8px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+.contact-block-val { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--cream); transition: color 0.25s; }
+.contact-block-val:hover { color: var(--gold); }
+.contact-block-sub { font-size: 12px; font-weight: 300; color: var(--text-dim); margin-top: 4px; }
+.contact-divider { width: 100%; height: 1px; background: var(--border); margin: 36px 0; }
+.contact-socials { display: flex; gap: 12px; margin-top: 28px; }
+.contact-social {
+  width: 44px; height: 44px;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 500;
+  color: var(--text-dim);
+  transition: all 0.3s;
+}
+.contact-social:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+/* Form side */
+#booking .form-title { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--cream); margin-bottom: 36px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { margin-bottom: 20px; }
+.form-label { display: block; font-size: 9px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.form-input, .form-select, .form-textarea {
+  display: block; width: 100%;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  padding: 14px 18px;
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 300;
+  transition: border-color 0.25s;
+  appearance: none; -webkit-appearance: none;
+  color-scheme: dark;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: rgba(201,168,92,0.5); outline: none; }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-select option { background: var(--deep); }
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--sans);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 8px;
+}
+.form-submit:hover { background: var(--gold2); }
+.form-note { font-size: 11px; font-weight: 300; color: var(--text-dim); margin-top: 12px; text-align: center; }
+
+/* Map */
+.map-section { height: 450px; position: relative; border-top: 1px solid var(--border); overflow: hidden; }
+.map-section iframe { width: 100%; height: 100%; border: none; display: block; filter: invert(1) hue-rotate(180deg) saturate(0.25) brightness(0.7); opacity: 0.85; }
+.map-overlay {
+  position: absolute; top: 40px; left: 48px; z-index: 2;
+  background: rgba(18,15,10,0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  max-width: 280px;
+}
+.map-overlay-title { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+.map-overlay-addr { font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.6; }
+.map-overlay-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 9px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); transition: gap 0.3s; }
+.map-overlay-link:hover { gap: 10px; }
+.map-overlay-link::after { content: '→'; }
+
+/* Success banner */
+.success-msg {
+  display: none;
+  background: rgba(0,180,120,0.1);
+  border: 1px solid rgba(0,180,120,0.3);
+  padding: 16px 20px;
+  text-align: center;
+  color: #00d4a4;
+  font-size: 13px; font-weight: 300;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-hero-content { padding: 0 24px 60px; }
+  .map-overlay { left: 24px; top: 24px; }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="hebergement.html">Hébergement</a></li>
+    <li><a href="restaurant.html">Restaurant</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">FR | EN</span>
+    <a href="#booking" class="nav-cta">Réserver</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-drawer" id="drawer">
+  <a href="hebergement.html">Hébergement</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="services.html">Services</a>
+  <a href="evenements.html">Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="#booking" class="nav-cta">Réserver</a>
+</div>
+
+<section class="contact-hero">
+  <div class="contact-hero-content">
+    <div class="eyebrow">Nous contacter</div>
+    <h1 class="page-title">Réservation<br>& Contact</h1>
+  </div>
+</section>
+
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info" data-reveal="left">
+        <h3>Nous sommes à votre écoute</h3>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Téléphone principal</span>
+          <a href="tel:+237659898989" class="contact-block-val">+237 6 59 89 89 89</a>
+          <div class="contact-block-sub">Disponible 24h/24 · 7j/7</div>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Téléphone secondaire</span>
+          <a href="tel:+237652185218" class="contact-block-val">+237 6 52 18 52 18</a>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Email réservations</span>
+          <a href="mailto:reservation@genevahoteldouala.com" class="contact-block-val" style="font-size:14px">reservation@genevahoteldouala.com</a>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Email général</span>
+          <a href="mailto:contact@genevahoteldouala.com" class="contact-block-val" style="font-size:14px">contact@genevahoteldouala.com</a>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">Adresse</span>
+          <div class="contact-block-val" style="cursor:default">Rue Socaver Ndogbong</div>
+          <div class="contact-block-sub">Douala, Cameroun · À 12 min de l'aéroport DLA</div>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-block-label">WhatsApp</span>
+          <a href="https://wa.me/237659898989" class="contact-block-val" target="_blank" rel="noopener">+237 6 59 89 89 89</a>
+          <div class="contact-block-sub">Réponse rapide garantie</div>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div>
+          <span class="contact-block-label">Réseaux sociaux</span>
+          <div class="contact-socials">
+            <a href="https://facebook.com/genevahoteldouala" class="contact-social" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://instagram.com/genevahoteldouala" class="contact-social" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+            <a href="https://twitter.com/genevahotel237" class="contact-social" target="_blank" rel="noopener" aria-label="Twitter">𝕏</a>
+            <a href="https://linkedin.com/company/genevahoteldouala" class="contact-social" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div id="booking" data-reveal="right" data-delay="2">
+        <div class="form-title">Demande de réservation</div>
+        <div class="success-msg" id="successMsg">✓ Votre demande a été envoyée. Nous vous répondrons dans les 2 heures.</div>
+
+        <form id="bookingForm" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="fname">Prénom</label>
+              <input class="form-input" type="text" id="fname" placeholder="Jean-Baptiste" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="lname">Nom</label>
+              <input class="form-input" type="text" id="lname" placeholder="Kamga" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" placeholder="votre@email.com" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="phone">Téléphone / WhatsApp</label>
+            <input class="form-input" type="tel" id="phone" placeholder="+237 6 XX XX XX XX">
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="checkin">Arrivée</label>
+              <input class="form-input" type="date" id="checkin">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="checkout">Départ</label>
+              <input class="form-input" type="date" id="checkout">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="room-type">Type de chambre</label>
+              <select class="form-select" id="room-type">
+                <option value="">Choisir...</option>
+                <option>Suite Prestige — 80m²</option>
+                <option>Suite Deluxe — 56m²</option>
+                <option>Chambre Prestige — 26m²</option>
+                <option>Chambre Premium — 21m²</option>
+                <option>Pas encore décidé</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="guests">Nombre de personnes</label>
+              <select class="form-select" id="guests">
+                <option>1 Adulte</option>
+                <option>2 Adultes</option>
+                <option>2 Adultes, 1 Enfant</option>
+                <option>2 Adultes, 2 Enfants</option>
+                <option>Groupe (5+)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="request">Demandes spéciales</label>
+            <textarea class="form-textarea" id="request" placeholder="Anniversaire, allergies, arrivée tardive, transfert aéroport..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Envoyer ma demande</button>
+          <p class="form-note">Réponse garantie sous 2 heures · Aucun paiement requis à ce stade</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<div class="map-section">
+  <div class="map-overlay">
+    <div class="map-overlay-title">Geneva Hôtel</div>
+    <div class="map-overlay-addr">Rue Socaver Ndogbong<br>Douala, Cameroun<br>À 12 min de l'aéroport DLA</div>
+    <a href="https://maps.google.com/?q=Geneva+Hotel+Douala" target="_blank" rel="noopener" class="map-overlay-link">Itinéraire</a>
+  </div>
+  <iframe
+    src="https://www.openstreetmap.org/export/embed.html?bbox=9.66,4.01,9.74,4.09&layer=mapnik"
+    title="Geneva Hôtel Douala sur la carte"
+    loading="lazy"
+    width="1400" height="450">
+  </iframe>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><span class="footer-brand-name">Geneva<em>.</em></span><p>Votre havre de confort et de beauté tropicale au cœur de Douala.</p><div class="footer-socials"><a href="#" class="footer-social">f</a><a href="#" class="footer-social">ig</a><a href="#" class="footer-social">𝕏</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Hôtel</div><ul><li><a href="index.html">Accueil</a></li><li><a href="hebergement.html">Chambres</a></li><li><a href="restaurant.html">Restaurant</a></li><li><a href="services.html">Services</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><ul><li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li><li><a href="mailto:reservation@genevahoteldouala.com">reservation@genevahoteldouala.com</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Réserver</div><ul><li><a href="#booking">Formulaire</a></li><li><a href="https://wa.me/237659898989" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span></div><div class="footer-copy"><a href="#">Mentions légales</a></div></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="main.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('successMsg').style.display = 'block';
+    e.target.reset();
+    btn.textContent = 'Envoyer ma demande';
+    btn.disabled = false;
+    window.scrollTo({ top: document.getElementById('booking').offsetTop - 100, behavior: 'smooth' });
+  }, 1200);
+}
+</script>
+</body>
+</html>

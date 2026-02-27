@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le Sylvania — Restaurant & Bar du Geneva Hôtel Douala. Cuisine fusion africaine contemporaine, cocktails signature, bar rooftop.">
+<title>Restaurant Le Sylvania — Geneva Hôtel Douala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { height: 70vh; min-height: 560px; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,9,6,0.3) 0%, rgba(11,9,6,0.9) 100%); }
+.page-hero-content { position: relative; z-index: 2; padding: 0 48px 80px; max-width: 1320px; margin: 0 auto; width: 100%; }
+.page-hero-content .eyebrow { display: flex; margin-bottom: 16px; }
+.page-title { font-family: var(--serif); font-size: clamp(3.5rem,7vw,6.5rem); font-weight: 400; color: var(--white); line-height: 1; letter-spacing: -0.02em; }
+.page-subtitle { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.5); margin-top: 16px; max-width: 500px; line-height: 1.7; }
+
+/* ambiance section */
+.resto-intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 100px; align-items: center;
+  padding: 120px 0;
+}
+.resto-intro-text .eyebrow { display: flex; margin-bottom: 20px; }
+.resto-intro-text h2 { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3rem); font-weight: 400; color: var(--cream); margin-bottom: 28px; }
+.resto-intro-text p { font-size: 15px; font-weight: 300; color: var(--text-dim); line-height: 1.95; margin-bottom: 16px; }
+.hours-block {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  margin: 32px 0;
+  display: flex; gap: 24px; align-items: flex-start;
+}
+.hours-block-icon { font-size: 24px; margin-top: 2px; }
+.hours-block-title { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+.hours-block-times { font-family: var(--serif); font-size: 16px; color: var(--cream); }
+.resto-intro-visual { position: relative; }
+.resto-intro-visual img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+.resto-float-img {
+  position: absolute; bottom: -32px; left: -32px;
+  width: 44%; aspect-ratio: 1;
+  object-fit: cover;
+  border: 4px solid var(--black);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* Menu section */
+.menu-section { padding: 0 0 120px; }
+.menu-header { text-align: center; margin-bottom: 80px; }
+.menu-header h2 { font-family: var(--serif); font-size: clamp(2.5rem,4vw,4rem); font-weight: 400; color: var(--cream); margin-top: 20px; }
+.menu-tabs { display: flex; justify-content: center; gap: 0; margin-bottom: 60px; border: 1px solid var(--border); width: fit-content; margin-left: auto; margin-right: auto; }
+.menu-tab {
+  padding: 14px 32px; font-size: 10px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-dim); cursor: pointer;
+  transition: all 0.3s; background: none; border: none;
+}
+.menu-tab.active { background: var(--gold); color: var(--black); }
+.menu-tab:hover:not(.active) { color: var(--cream); background: var(--warm); }
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.menu-item {
+  background: var(--warm);
+  padding: 32px 36px;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;
+  transition: background 0.3s;
+}
+.menu-item:hover { background: var(--card); }
+.menu-item-left { flex: 1; }
+.menu-item-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+.menu-item-desc { font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.7; }
+.menu-item-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.menu-tag { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; background: var(--gold-dim); border: 1px solid var(--border); color: var(--gold); }
+.menu-item-price { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--gold); white-space: nowrap; }
+
+/* Bar section */
+.bar-section {
+  position: relative; overflow: hidden;
+  min-height: 500px; display: flex; align-items: center;
+  margin-bottom: 120px;
+}
+.bar-bg { position: absolute; inset: 0; }
+.bar-bg img { width: 100%; height: 100%; object-fit: cover; }
+.bar-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(11,9,6,0.9) 50%, rgba(11,9,6,0.4) 100%); }
+.bar-content { position: relative; z-index: 2; max-width: 520px; }
+.bar-content h2 { font-family: var(--serif); font-size: clamp(2rem,3.5vw,3rem); font-weight: 400; color: var(--white); margin: 20px 0 20px; }
+.bar-content p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.9; margin-bottom: 32px; }
+.cocktail-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+.cocktail-chip { font-size: 10px; font-weight: 500; letter-spacing: 1px; padding: 8px 18px; border: 1px solid rgba(201,168,92,0.3); color: var(--gold); background: rgba(201,168,92,0.05); }
+
+/* Photo grid */
+.resto-gallery { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; height: 600px; }
+.resto-gallery img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+.resto-gallery img:hover { opacity: 0.85; }
+.resto-gallery .main { grid-row: span 2; }
+
+@media (max-width: 900px) {
+  .resto-intro { grid-template-columns: 1fr; gap: 60px; }
+  .resto-float-img { display: none; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .resto-gallery { grid-template-columns: 1fr; height: auto; grid-template-rows: auto; }
+  .resto-gallery .main { grid-row: auto; }
+  .resto-gallery img { aspect-ratio: 4/3; }
+  .page-hero-content { padding: 0 24px 60px; }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="hebergement.html">Hébergement</a></li>
+    <li><a href="restaurant.html" class="active">Restaurant</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">FR | EN</span>
+    <a href="contact.html#booking" class="nav-cta">Réserver</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-drawer" id="drawer">
+  <a href="hebergement.html">Hébergement</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="services.html">Services</a>
+  <a href="evenements.html">Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#booking" class="nav-cta">Réserver</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format&fit=crop" alt="Restaurant Le Sylvania" fetchpriority="high" width="1800" height="1200">
+  </div>
+  <div class="page-hero-content">
+    <div class="eyebrow">Restaurant & Bar</div>
+    <h1 class="page-title">Le Sylvania</h1>
+    <p class="page-subtitle">Cuisine fusion africaine contemporaine, cocktails signature & ambiance unique</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="resto-intro">
+      <div class="resto-intro-text" data-reveal="left">
+        <div class="eyebrow">Notre cuisine</div>
+        <h2>Une fusion d'Afrique<br>et de modernité</h2>
+        <p>Le Sylvania vous invite dans un univers où l'hospitalité africaine se marie à une cuisine créative et raffinée. Notre chef puise dans les ingrédients locaux pour créer des expériences gustatives mémorables.</p>
+        <p>De l'endjoua au ndolé revisité, en passant par nos grillades signature — chaque plat raconte une histoire, celle de la richesse culinaire du Cameroun et d'Afrique centrale.</p>
+        <div class="hours-block">
+          <div class="hours-block-icon">🕰</div>
+          <div>
+            <span class="hours-block-title">Horaires d'ouverture</span>
+            <div class="hours-block-times">
+              Petit-déjeuner · 06h30 – 10h30<br>
+              Déjeuner · 12h00 – 15h00<br>
+              Dîner · 19h00 – 22h30
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-outline"><span>Réserver une table</span></a>
+      </div>
+      <div class="resto-intro-visual" data-reveal="right" data-delay="2">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80&auto=format&fit=crop" alt="Ambiance Le Sylvania" loading="lazy" width="800" height="1067">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80&auto=format&fit=crop" alt="Plat signature" class="resto-float-img" loading="lazy" width="400" height="400">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="menu-section">
+  <div class="container">
+    <div class="menu-header" data-reveal="up">
+      <div class="eyebrow" style="display:inline-flex;margin:0 auto 16px">À la carte</div>
+      <h2>Notre Menu</h2>
+    </div>
+    <div class="menu-tabs">
+      <button class="menu-tab active">Entrées</button>
+      <button class="menu-tab">Plats</button>
+      <button class="menu-tab">Desserts</button>
+      <button class="menu-tab">Boissons</button>
+    </div>
+    <div class="menu-grid" data-reveal="up">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Salade de crevettes au piment</div>
+          <div class="menu-item-desc">Crevettes fraîches du littoral, sauce pimentée maison, avocat, citron vert, coriandre</div>
+          <div class="menu-item-tags"><span class="menu-tag">🌊 Fruits de mer</span><span class="menu-tag">🌶 Épicé</span></div>
+        </div>
+        <div class="menu-item-price">4 500 XAF</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Nem de poulet fumé</div>
+          <div class="menu-item-desc">Poulet fumé local, légumes croquants, sauce arachide, gingembre frais</div>
+          <div class="menu-item-tags"><span class="menu-tag">🍗 Volaille</span></div>
+        </div>
+        <div class="menu-item-price">3 800 XAF</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Velouté de plantain</div>
+          <div class="menu-item-desc">Plantain mûr, lait de coco, épices douces, chips de plantain, huile de palme rouge</div>
+          <div class="menu-item-tags"><span class="menu-tag">🌱 Végétarien</span><span class="menu-tag">⭐ Signature</span></div>
+        </div>
+        <div class="menu-item-price">3 200 XAF</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Carpaccio de bœuf Ngaoundéré</div>
+          <div class="menu-item-desc">Bœuf de qualité supérieure, huile d'olive, parmesan, roquette, câpres</div>
+          <div class="menu-item-tags"><span class="menu-tag">🥩 Bœuf</span></div>
+        </div>
+        <div class="menu-item-price">5 500 XAF</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Tartare de thon jaune</div>
+          <div class="menu-item-desc">Thon de l'Atlantique, marinade agrumes, mangue, sésame doré, wasabi</div>
+          <div class="menu-item-tags"><span class="menu-tag">🐟 Poisson</span><span class="menu-tag">⭐ Signature</span></div>
+        </div>
+        <div class="menu-item-price">6 000 XAF</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Beignets d'Okra croustillants</div>
+          <div class="menu-item-desc">Okra frais, enrobage épicé, sauce tomate pimentée maison</div>
+          <div class="menu-item-tags"><span class="menu-tag">🌱 Végétarien</span><span class="menu-tag">Local</span></div>
+        </div>
+        <div class="menu-item-price">2 800 XAF</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bar -->
+<section class="bar-section">
+  <div class="bar-bg">
+    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1800&q=80&auto=format&fit=crop" alt="Bar Le Sylvania" loading="lazy" width="1800" height="1200">
+  </div>
+  <div class="container">
+    <div class="bar-content" data-reveal="up">
+      <div class="eyebrow">Bar & Cocktails</div>
+      <h2>Le Bar Sylvania</h2>
+      <p>Notre bar propose une carte de cocktails signature inspirée des saveurs africaines — hibiscus, gingembre, baobab, fynbos. Vins d'Afrique du Sud, spiritueux locaux, grandes maisons internationales.</p>
+      <div class="cocktail-chips">
+        <span class="cocktail-chip">Hibiscus Mule</span>
+        <span class="cocktail-chip">Baobab Sour</span>
+        <span class="cocktail-chip">Ginger Cameroon</span>
+        <span class="cocktail-chip">Safou Spritz</span>
+        <span class="cocktail-chip">Palm Wine Fizz</span>
+      </div>
+      <a href="contact.html" class="btn btn-outline"><span>Réserver une table</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<div class="container">
+  <div class="resto-gallery" data-reveal="up">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop" alt="Salle restaurant" loading="lazy" class="main" width="900" height="1200">
+    <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80&auto=format&fit=crop" alt="Plat gastronomique" loading="lazy" width="600" height="400">
+    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80&auto=format&fit=crop" alt="Cocktails" loading="lazy" width="600" height="400">
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Geneva<em>.</em></span>
+        <p>Votre havre de confort et de beauté tropicale au cœur de Douala.</p>
+        <div class="footer-socials"><a href="#" class="footer-social">f</a><a href="#" class="footer-social">ig</a><a href="#" class="footer-social">𝕏</a></div>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Hôtel</div><ul><li><a href="index.html">Accueil</a></li><li><a href="hebergement.html">Chambres</a></li><li><a href="restaurant.html">Restaurant</a></li><li><a href="services.html">Services</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><ul><li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li><li><a href="mailto:reservation@genevahoteldouala.com">reservation@genevahoteldouala.com</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Réserver</div><ul><li><a href="contact.html#booking">Disponibilités</a></li><li><a href="contact.html">Nous contacter</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span></div>
+      <div class="footer-copy"><a href="#">Mentions légales</a></div>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.menu-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

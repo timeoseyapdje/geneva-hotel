@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Geneva Hôtel Douala — Luxe, confort et beauté tropicale à 12 minutes de l'aéroport. Chambres prestige, restaurant Le Sylvania, rooftop piscine.">
+<meta property="og:title" content="Geneva Hôtel Douala — Home in Better">
+<meta property="og:description" content="Votre nouvelle destination au cœur de Douala.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80">
+<meta name="theme-color" content="#0b0906">
+<title>Geneva Hôtel Douala — Home in Better</title>
+
+<!-- Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Geneva Hôtel Douala",
+  "description": "Hôtel de luxe à Douala, Cameroun. À 12 minutes de l'aéroport international.",
+  "url": "https://genevahoteldouala.com",
+  "telephone": "+237659898989",
+  "email": "reservation@genevahoteldouala.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rue Socaver Ndogbong",
+    "addressLocality": "Douala",
+    "addressCountry": "CM"
+  },
+  "starRating": { "@type": "Rating", "ratingValue": "4" },
+  "priceRange": "$$$$",
+  "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Piscine", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* ══════════════════════════════════
+   HOME — HERO
+══════════════════════════════════ */
+.hero {
+  height: 100svh;
+  min-height: 680px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+}
+.hero-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  scale: 1.05;
+  animation: heroZoom 12s ease-out forwards;
+}
+@keyframes heroZoom {
+  from { scale: 1.08; }
+  to   { scale: 1.0; }
+}
+.hero-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(11,9,6,0.3) 0%,
+      rgba(11,9,6,0.0) 35%,
+      rgba(11,9,6,0.0) 50%,
+      rgba(11,9,6,0.85) 100%),
+    linear-gradient(to right, rgba(11,9,6,0.4) 0%, transparent 60%);
+}
+
+/* Diagonal gold line decoration */
+.hero-line {
+  position: absolute;
+  top: 0; right: 15%;
+  width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(201,168,92,0.25) 30%, rgba(201,168,92,0.1) 70%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-body {
+  position: relative;
+  z-index: 2;
+  padding: 0 48px 80px;
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: flex-end;
+}
+
+.hero-intro {
+  animation: fadeUp 1.2s var(--ease-out) 0.2s both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block; width: 40px; height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold2);
+  display: block;
+}
+
+.hero-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(242,234,216,0.6);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 44px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Hero right: booking widget */
+.hero-widget {
+  background: rgba(18,15,10,0.85);
+  backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid var(--border);
+  padding: 36px;
+  animation: fadeUp 1.2s var(--ease-out) 0.5s both;
+}
+.hero-widget-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.widget-field { margin-bottom: 16px; }
+.widget-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.widget-input {
+  display: block;
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--cream);
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 300;
+  transition: border-color 0.25s;
+  appearance: none;
+  -webkit-appearance: none;
+  color-scheme: dark;
+}
+.widget-input:focus { border-color: rgba(201,168,92,0.4); }
+.widget-input option { background: var(--deep); }
+.widget-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.widget-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 8px;
+  transition: background 0.3s;
+}
+.widget-btn:hover { background: var(--gold2); }
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeUp 1s ease 1.5s both;
+}
+.hero-scroll-text {
+  font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.hero-scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* ══════════════════════════════════
+   HOME — NUMBERS BAND
+══════════════════════════════════ */
+.numbers-band {
+  background: var(--warm);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+.numbers-inner {
+  display: flex;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.number-item {
+  flex: 1;
+  padding: 36px 20px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.number-item:last-child { border-right: none; }
+.number-val {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+}
+.number-label {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ══════════════════════════════════
+   HOME — ABOUT SPLIT
+══════════════════════════════════ */
+.about-split {
+  padding: 130px 0;
+  overflow: hidden;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+  padding-right: 60px;
+}
+.about-img-main {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+}
+.about-img-float {
+  position: absolute;
+  bottom: -40px; right: 20px;
+  width: 48%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border: 4px solid var(--black);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+}
+.about-badge {
+  position: absolute;
+  top: 40px; left: -20px;
+  width: 90px; height: 90px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(201,168,92,0.3);
+  text-align: center;
+}
+.about-badge-n {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--black);
+  line-height: 1;
+}
+.about-badge-t {
+  font-size: 7px; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0.7;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.about-text { padding-left: 80px; }
+.about-text .eyebrow { display: flex; }
+.about-text h2 { color: var(--cream); margin-bottom: 28px; }
+.about-text p {
+  font-size: 15px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.95;
+  margin-bottom: 16px;
+}
+.about-quote {
+  margin: 36px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+}
+.about-quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px; font-weight: 400;
+  color: var(--cream);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════════════════════════
+   HOME — ROOMS SHOWCASE
+══════════════════════════════════ */
+.rooms-section {
+  padding: 0 0 130px;
+}
+.rooms-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 48px;
+  margin-bottom: 48px;
+  max-width: 1320px;
+  margin-left: auto; margin-right: auto;
+}
+.rooms-header h2 { color: var(--cream); }
+
+/* Horizontal scroll rooms */
+.rooms-scroll-wrap {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 48px;
+  cursor: grab;
+}
+.rooms-scroll-wrap:active { cursor: grabbing; }
+.rooms-scroll-wrap::-webkit-scrollbar { display: none; }
+.rooms-scroll {
+  display: flex;
+  gap: 2px;
+  width: max-content;
+  padding-bottom: 4px;
+}
+.room-card {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 380px;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+}
+.room-card.featured { width: 520px; }
+.room-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+.room-card:hover .room-img { transform: scale(1.06); }
+.room-shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+    rgba(11,9,6,0.92) 0%,
+    rgba(11,9,6,0.3) 45%,
+    transparent 100%);
+  transition: opacity 0.4s;
+}
+.room-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 32px;
+  transform: translateY(8px);
+  transition: transform 0.4s var(--ease);
+}
+.room-card:hover .room-content { transform: translateY(0); }
+.room-tag {
+  font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold);
+  display: block; margin-bottom: 8px;
+}
+.room-name {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 400;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.room-specs {
+  display: flex; gap: 14px;
+  margin-bottom: 16px;
+}
+.room-spec {
+  font-size: 11px; font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  display: flex; align-items: center; gap: 5px;
+}
+.room-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s 0.1s;
+}
+.room-cta::after { content: '→'; transition: transform 0.3s; }
+.room-card:hover .room-cta { opacity: 1; }
+.room-card:hover .room-cta::after { transform: translateX(4px); }
+
+/* ══════════════════════════════════
+   HOME — RESTAURANT FEATURE
+══════════════════════════════════ */
+.restaurant-feature {
+  position: relative;
+  overflow: hidden;
+  background: var(--deep);
+}
+.restaurant-feature::before {
+  content: 'SYLVANIA';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--serif);
+  font-size: min(18vw, 180px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.02);
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  z-index: 0;
+}
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 700px;
+  position: relative;
+  z-index: 1;
+}
+.restaurant-visual { position: relative; overflow: hidden; }
+.restaurant-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 8s ease;
+}
+.restaurant-visual:hover img { transform: scale(1.04); }
+.restaurant-float {
+  position: absolute;
+  bottom: 48px; right: -32px;
+  width: 200px;
+  border: 3px solid var(--deep);
+}
+.restaurant-text {
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.restaurant-text .eyebrow { display: flex; }
+.restaurant-text h2 { color: var(--cream); margin-bottom: 28px; }
+.restaurant-text p {
+  font-size: 15px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.95;
+  margin-bottom: 16px;
+}
+.restaurant-hours {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 36px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.hours-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s ease infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.25} }
+.hours-text {
+  font-size: 12px; font-weight: 300;
+  color: var(--text-dim); letter-spacing: 0.3px;
+}
+
+/* ══════════════════════════════════
+   HOME — ROOFTOP PARALLAX
+══════════════════════════════════ */
+.rooftop-section {
+  position: relative;
+  height: 85vh; min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.rooftop-bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+.rooftop-bg img {
+  width: 100%; height: 110%;
+  object-fit: cover;
+  margin-top: -5%;
+}
+.rooftop-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right,
+    rgba(11,9,6,0.88) 0%,
+    rgba(11,9,6,0.6) 50%,
+    rgba(11,9,6,0.2) 100%);
+}
+.rooftop-content {
+  position: relative; z-index: 2;
+  max-width: 600px;
+}
+.rooftop-content h2 { color: var(--white); margin-bottom: 20px; }
+.rooftop-content p {
+  font-size: 15px; font-weight: 300;
+  color: rgba(242,234,216,0.6);
+  line-height: 1.9; margin-bottom: 36px;
+}
+.rooftop-detail {
+  display: flex; gap: 36px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.rooftop-detail-item { display: flex; align-items: center; gap: 10px; }
+.rooftop-detail-icon {
+  width: 34px; height: 34px;
+  background: var(--gold-dim);
+  border: 1px solid var(--border);
+  display: flex; align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.rooftop-detail-text { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.5); }
+
+/* ══════════════════════════════════
+   HOME — SERVICES GRID
+══════════════════════════════════ */
+.services-section { padding: 120px 0; }
+.services-header { text-align: center; margin-bottom: 70px; }
+.services-header h2 { color: var(--cream); }
+.services-header .eyebrow {
+  display: inline-flex;
+  margin-bottom: 20px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+.service-item {
+  background: var(--black);
+  padding: 52px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+  cursor: default;
+}
+.service-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.service-item:hover { background: var(--warm); }
+.service-item:hover::before { transform: scaleX(1); }
+.service-num {
+  font-family: var(--serif);
+  font-size: 48px; font-weight: 400;
+  color: rgba(201,168,92,0.08);
+  line-height: 1;
+  margin-bottom: 20px;
+  transition: color 0.4s;
+}
+.service-item:hover .service-num { color: rgba(201,168,92,0.15); }
+.service-icon {
+  font-size: 26px;
+  display: block;
+  margin-bottom: 16px;
+}
+.service-name {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.service-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.8;
+}
+
+/* ══════════════════════════════════
+   HOME — TESTIMONIALS
+══════════════════════════════════ */
+.testimonials-section {
+  padding: 0 0 120px;
+  overflow: hidden;
+}
+.testimonials-header {
+  text-align: center;
+  padding: 0 0 60px;
+}
+.testimonials-header h2 { color: var(--cream); }
+.testimonials-header .eyebrow { display: inline-flex; margin-bottom: 20px; }
+.testimonials-track {
+  display: flex;
+  gap: 2px;
+  padding: 0 48px;
+}
+.testi-card {
+  flex: 1;
+  min-width: 320px;
+  background: var(--warm);
+  padding: 44px 40px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+.testi-card:hover { border-bottom-color: var(--gold); background: var(--card); }
+.testi-stars { color: var(--gold); letter-spacing: 3px; font-size: 12px; margin-bottom: 20px; }
+.testi-mark {
+  font-family: var(--serif);
+  font-size: 60px; line-height: 0.5;
+  color: var(--gold); opacity: 0.3;
+  margin-bottom: 20px;
+}
+.testi-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px; font-weight: 400;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.testi-author { display: flex; align-items: center; gap: 14px; }
+.testi-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 16px; color: var(--gold);
+  flex-shrink: 0;
+}
+.testi-name { font-size: 13px; font-weight: 500; color: var(--cream); }
+.testi-origin { font-size: 11px; font-weight: 300; color: var(--text-dim); margin-top: 2px; }
+
+/* ══════════════════════════════════
+   HOME — LOCATION SPLIT
+══════════════════════════════════ */
+.location-section {
+  padding: 120px 0;
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+}
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.location-text .eyebrow { display: flex; }
+.location-text h2 { color: var(--cream); margin-bottom: 40px; }
+.location-points { margin-bottom: 44px; }
+.location-point {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.location-point:first-child { border-top: 1px solid var(--border); }
+.location-icon {
+  width: 38px; height: 38px;
+  background: var(--gold-dim);
+  border: 1px solid var(--border);
+  display: flex; align-items: center;
+  justify-content: center;
+  font-size: 14px; color: var(--gold);
+  flex-shrink: 0;
+}
+.location-point-title { font-size: 13px; font-weight: 500; color: var(--cream); margin-bottom: 3px; }
+.location-point-desc { font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.6; }
+.location-map {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.location-map iframe {
+  width: 100%; height: 100%;
+  border: none;
+  filter: invert(1) hue-rotate(180deg) saturate(0.3) brightness(0.7);
+  opacity: 0.8;
+  display: block;
+}
+
+/* ══════════════════════════════════
+   HOME — CTA BAND
+══════════════════════════════════ */
+.cta-band {
+  padding: 120px 0;
+  text-align: center;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,168,92,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-band h2 { color: var(--cream); margin-bottom: 16px; position: relative; }
+.cta-band p {
+  font-size: 15px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.8;
+  max-width: 500px; margin: 0 auto 44px;
+  position: relative;
+}
+.cta-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.cta-contact-item {
+  padding: 0 56px;
+  border-right: 1px solid var(--border);
+  text-align: left;
+}
+.cta-contact-item:last-child { border-right: none; }
+.cta-contact-label {
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 8px;
+}
+.cta-contact-val {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 400;
+  color: var(--cream);
+  transition: color 0.25s;
+}
+.cta-contact-val:hover { color: var(--gold); }
+
+/* ══════════════════════════════════
+   RESPONSIVE — HOME
+══════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-body { grid-template-columns: 1fr; }
+  .hero-widget { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .about-visual { padding-right: 0; }
+  .about-text { padding-left: 0; }
+  .restaurant-grid { grid-template-columns: 1fr; }
+  .restaurant-visual { height: 400px; }
+  .restaurant-float { display: none; }
+  .restaurant-text { padding: 60px 40px; }
+  .location-grid { grid-template-columns: 1fr; gap: 48px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .cta-contact-item { padding: 0 32px; }
+}
+@media (max-width: 768px) {
+  .hero-body { padding: 0 24px 100px; }
+  .hero-scroll { display: none; }
+  .numbers-inner { flex-wrap: wrap; }
+  .number-item { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
+  .rooms-header { padding: 0 24px; flex-wrap: wrap; gap: 16px; }
+  .rooms-scroll-wrap { padding: 0 24px; }
+  .testimonials-track { flex-direction: column; padding: 0 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .cta-contacts { flex-direction: column; align-items: center; gap: 32px; }
+  .cta-contact-item { border-right: none; padding: 0; text-align: center; }
+  .rooftop-section { height: auto; min-height: 600px; padding: 80px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="hebergement.html">Hébergement</a></li>
+    <li><a href="restaurant.html">Restaurant</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">FR | EN</span>
+    <a href="contact.html#booking" class="nav-cta">Réserver</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="drawer">
+  <a href="hebergement.html">Hébergement</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="services.html">Services</a>
+  <a href="evenements.html">Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#booking" class="nav-cta">Réserver</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-media">
+    <img
+      src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1800&q=80&auto=format&fit=crop"
+      alt="Geneva Hôtel Douala — vue extérieure"
+      fetchpriority="high"
+      width="1800" height="1200">
+  </div>
+  <div class="hero-line"></div>
+
+  <div class="hero-body">
+    <div class="hero-intro">
+      <div class="hero-eyebrow">Douala, Cameroun</div>
+      <h1 class="hero-title">
+        Home in<br><em>better.</em>
+      </h1>
+      <p class="hero-sub">
+        À 12 minutes de l'aéroport international, votre havre de confort et de beauté tropicale au cœur de la capitale économique du Cameroun.
+      </p>
+      <div class="hero-actions">
+        <a href="contact.html#booking" class="btn btn-gold"><span>Réserver maintenant</span></a>
+        <a href="hebergement.html" class="btn btn-outline"><span>Nos chambres</span></a>
+      </div>
+    </div>
+
+    <div class="hero-widget">
+      <div class="hero-widget-title">Vérifier les disponibilités</div>
+      <div class="widget-row">
+        <div class="widget-field">
+          <label class="widget-label" for="checkin">Arrivée</label>
+          <input class="widget-input" type="date" id="checkin">
+        </div>
+        <div class="widget-field">
+          <label class="widget-label" for="checkout">Départ</label>
+          <input class="widget-input" type="date" id="checkout">
+        </div>
+      </div>
+      <div class="widget-field">
+        <label class="widget-label">Chambres</label>
+        <select class="widget-input">
+          <option>1 Chambre</option>
+          <option>2 Chambres</option>
+          <option>3 Chambres</option>
+        </select>
+      </div>
+      <div class="widget-field">
+        <label class="widget-label">Voyageurs</label>
+        <select class="widget-input">
+          <option>1 Adulte</option>
+          <option>2 Adultes</option>
+          <option>2 Adultes, 1 Enfant</option>
+          <option>2 Adultes, 2 Enfants</option>
+        </select>
+      </div>
+      <button class="widget-btn" onclick="alert('Redirection réservation…')">Voir les disponibilités</button>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-text">Découvrir</span>
+  </div>
+</section>
+
+<!-- ── NUMBERS ── -->
+<div class="numbers-band" data-counters>
+  <div class="numbers-inner">
+    <div class="number-item" data-reveal="up">
+      <span class="number-val"><span data-count="50" data-suffix="+">50+</span></span>
+      <span class="number-label">Chambres & Suites</span>
+    </div>
+    <div class="number-item" data-reveal="up" data-delay="1">
+      <span class="number-val"><span data-count="12" data-suffix="'">12'</span></span>
+      <span class="number-label">De l'aéroport</span>
+    </div>
+    <div class="number-item" data-reveal="up" data-delay="2">
+      <span class="number-val"><span data-count="5" data-suffix=" ans">5 ans</span></span>
+      <span class="number-label">D'excellence</span>
+    </div>
+    <div class="number-item" data-reveal="up" data-delay="3">
+      <span class="number-val">24/7</span>
+      <span class="number-label">Service continu</span>
+    </div>
+    <div class="number-item" data-reveal="up" data-delay="4">
+      <span class="number-val"><span data-count="4" data-suffix="★">4★</span></span>
+      <span class="number-label">Classement officiel</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about-split">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual" data-reveal="left">
+        <img
+          src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80&auto=format&fit=crop"
+          alt="Chambre Geneva Hôtel"
+          class="about-img-main"
+          loading="lazy" width="800" height="1067">
+        <img
+          src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=500&q=80&auto=format&fit=crop"
+          alt="Détail salle de bain"
+          class="about-img-float"
+          loading="lazy" width="500" height="625">
+        <div class="about-badge">
+          <span class="about-badge-n">5</span>
+          <span class="about-badge-t">Ans d'excellence</span>
+        </div>
+      </div>
+      <div class="about-text" data-reveal="right" data-delay="2">
+        <div class="eyebrow">Bienvenue</div>
+        <h2 class="display display-md">Un havre de confort<br>et de beauté tropicale</h2>
+        <p>Que vous voyagiez pour le travail ou pour le plaisir, notre personnel expérimenté est prêt à répondre à tous vos besoins avec une attention portée à chaque détail.</p>
+        <p>Geneva Hôtel mêle l'élégance contemporaine à la chaleur de l'hospitalité africaine pour vous offrir une expérience unique et mémorable.</p>
+        <div class="about-quote">
+          <p>"Chez vous, en mieux — depuis 2019."</p>
+        </div>
+        <a href="a-propos.html" class="btn btn-outline btn-arrow"><span>Notre histoire</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROOMS ── -->
+<section class="rooms-section">
+  <div class="rooms-header" data-reveal="up">
+    <div>
+      <div class="eyebrow">Hébergement</div>
+      <h2 class="display display-md" style="color:var(--cream)">Chambres & Suites</h2>
+    </div>
+    <a href="hebergement.html" class="btn btn-outline"><span>Voir tout</span></a>
+  </div>
+
+  <div class="rooms-scroll-wrap" id="roomsScroll">
+    <div class="rooms-scroll">
+
+      <div class="room-card featured">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80&auto=format&fit=crop" alt="Suite Prestige" class="room-img" loading="lazy" width="900" height="1200">
+        <div class="room-shade"></div>
+        <div class="room-content">
+          <span class="room-tag">La plus grande</span>
+          <div class="room-name">Suite Prestige</div>
+          <div class="room-specs">
+            <span class="room-spec">▪ 80 m²</span>
+            <span class="room-spec">▪ 2 lits</span>
+            <span class="room-spec">▪ 2 SdB</span>
+          </div>
+          <a href="hebergement.html" class="room-cta">Découvrir</a>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80&auto=format&fit=crop" alt="Chambre Prestige" class="room-img" loading="lazy" width="700" height="933">
+        <div class="room-shade"></div>
+        <div class="room-content">
+          <span class="room-tag">Chambre</span>
+          <div class="room-name">Prestige</div>
+          <div class="room-specs">
+            <span class="room-spec">▪ 26 m²</span>
+            <span class="room-spec">▪ 1 lit king</span>
+          </div>
+          <a href="hebergement.html" class="room-cta">Découvrir</a>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=80&auto=format&fit=crop" alt="Suite Deluxe" class="room-img" loading="lazy" width="700" height="933">
+        <div class="room-shade"></div>
+        <div class="room-content">
+          <span class="room-tag">Suite</span>
+          <div class="room-name">Deluxe</div>
+          <div class="room-specs">
+            <span class="room-spec">▪ 56 m²</span>
+            <span class="room-spec">▪ 1 lit</span>
+          </div>
+          <a href="hebergement.html" class="room-cta">Découvrir</a>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=700&q=80&auto=format&fit=crop" alt="Chambre Premium" class="room-img" loading="lazy" width="700" height="933">
+        <div class="room-shade"></div>
+        <div class="room-content">
+          <span class="room-tag">Chambre</span>
+          <div class="room-name">Premium</div>
+          <div class="room-specs">
+            <span class="room-spec">▪ 21 m²</span>
+            <span class="room-spec">▪ 1 lit</span>
+          </div>
+          <a href="hebergement.html" class="room-cta">Découvrir</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── RESTAURANT ── -->
+<section class="restaurant-feature" id="restaurant">
+  <div class="restaurant-grid">
+    <div class="restaurant-visual" data-reveal="left">
+      <img
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop"
+        alt="Restaurant Le Sylvania"
+        loading="lazy" width="900" height="675">
+      <img
+        src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&q=80&auto=format&fit=crop"
+        alt="Cocktails Le Sylvania"
+        class="restaurant-float"
+        loading="lazy" width="400" height="533">
+    </div>
+    <div class="restaurant-text" data-reveal="right" data-delay="2">
+      <div class="eyebrow">Restaurant & Bar</div>
+      <h2 class="display display-lg">Le Sylvania</h2>
+      <p>Une ambiance époustouflante mêlant design contemporain et style africain. Dès que vous entrez, vous êtes transporté dans un tout autre monde.</p>
+      <p>Un menu inspiré des saveurs et ingrédients locaux — fusion de cuisine traditionnelle avec des touches modernes créatives. Vins, cocktails signature, spiritueux africains.</p>
+      <div class="restaurant-hours">
+        <div class="hours-dot"></div>
+        <span class="hours-text">Ouvert chaque jour · 06h30 — 22h30</span>
+      </div>
+      <a href="restaurant.html" class="btn btn-outline"><span>Voir le menu</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROOFTOP ── -->
+<section class="rooftop-section" id="rooftop">
+  <div class="rooftop-bg">
+    <img
+      src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1800&q=80&auto=format&fit=crop"
+      alt="Rooftop piscine Geneva Hôtel"
+      loading="lazy"
+      data-parallax="0.2"
+      width="1800" height="1200">
+  </div>
+  <div class="container">
+    <div class="rooftop-content" data-reveal="up">
+      <div class="eyebrow">Rooftop</div>
+      <h2 class="display display-lg">Terrasse<br>& Piscine</h2>
+      <p>Surplombez l'effervescence de Douala depuis notre oasis urbaine. Vue panoramique, eaux cristallines, couchers de soleil inoubliables.</p>
+      <div class="rooftop-detail">
+        <div class="rooftop-detail-item">
+          <div class="rooftop-detail-icon">🏊</div>
+          <span class="rooftop-detail-text">Piscine chauffée</span>
+        </div>
+        <div class="rooftop-detail-item">
+          <div class="rooftop-detail-icon">🍹</div>
+          <span class="rooftop-detail-text">Bar rooftop</span>
+        </div>
+        <div class="rooftop-detail-item">
+          <div class="rooftop-detail-icon">🌇</div>
+          <span class="rooftop-detail-text">Vue panoramique</span>
+        </div>
+      </div>
+      <a href="services.html" class="btn btn-outline"><span>En savoir plus</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services-section">
+  <div class="container">
+    <div class="services-header" data-reveal="up">
+      <div class="eyebrow" style="display:inline-flex;margin:0 auto 20px">Ce que nous offrons</div>
+      <h2 class="display display-md">Nos Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-item" data-reveal="up">
+        <div class="service-num">01</div>
+        <span class="service-icon">🏋️</span>
+        <div class="service-name">Sport & Bien-être</div>
+        <div class="service-desc">Salle de fitness équipée, spa, sauna. Programmes bien-être sur mesure pour vous ressourcer.</div>
+      </div>
+      <div class="service-item" data-reveal="up" data-delay="1">
+        <div class="service-num">02</div>
+        <span class="service-icon">🎪</span>
+        <div class="service-name">Événements</div>
+        <div class="service-desc">Espaces modulables pour conférences, séminaires, mariages et réceptions privées jusqu'à 200 personnes.</div>
+      </div>
+      <div class="service-item" data-reveal="up" data-delay="2">
+        <div class="service-num">03</div>
+        <span class="service-icon">🚗</span>
+        <div class="service-name">Transport</div>
+        <div class="service-desc">Navette aéroport 24h/24, 7j/7. Service de chauffeur privé pour vos déplacements en ville.</div>
+      </div>
+      <div class="service-item" data-reveal="up" data-delay="3">
+        <div class="service-num">04</div>
+        <span class="service-icon">🍳</span>
+        <div class="service-name">Petit-Déjeuner</div>
+        <div class="service-desc">Buffet continental et africain servi chaque matin. Produits frais locaux, viennoiseries, jus naturels.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="testimonials-header" data-reveal="up">
+      <div class="eyebrow" style="display:inline-flex;margin:0 auto 20px">Avis clients</div>
+      <h2 class="display display-md">Ce qu'ils disent</h2>
+    </div>
+  </div>
+  <div class="testimonials-track">
+    <div class="testi-card" data-reveal="up">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Un hôtel exceptionnel. Le personnel est attentionné, les chambres impeccables. La piscine sur le toit est un vrai bijou avec une vue magnifique sur Douala.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">M</div>
+        <div>
+          <div class="testi-name">Marie-Claire D.</div>
+          <div class="testi-origin">Paris, France</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card" data-reveal="up" data-delay="1">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Le restaurant Le Sylvania est une véritable découverte. La fusion cuisine locale et moderne est parfaitement exécutée. Je reviendrai rien que pour ça.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">J</div>
+        <div>
+          <div class="testi-name">Jean-Baptiste K.</div>
+          <div class="testi-origin">Abidjan, Côte d'Ivoire</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card" data-reveal="up" data-delay="2">
+      <div class="testi-stars">★★★★☆</div>
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Idéal pour les voyages d'affaires. Proche de l'aéroport, salles de réunion bien équipées, WiFi rapide. Le rapport qualité-prix est excellent pour le niveau de service.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Amara S.</div>
+          <div class="testi-origin">Lagos, Nigeria</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCATION ── -->
+<section class="location-section">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-text" data-reveal="left">
+        <div class="eyebrow">Accès</div>
+        <h2 class="display display-md">Au cœur<br>de Douala</h2>
+        <div class="location-points">
+          <div class="location-point">
+            <div class="location-icon">✈</div>
+            <div>
+              <div class="location-point-title">Aéroport International de Douala</div>
+              <div class="location-point-desc">12 minutes en voiture (DLA). Navette disponible sur demande.</div>
+            </div>
+          </div>
+          <div class="location-point">
+            <div class="location-icon">🏢</div>
+            <div>
+              <div class="location-point-title">Centre des Affaires</div>
+              <div class="location-point-desc">15 minutes du quartier d'affaires de Bonanjo.</div>
+            </div>
+          </div>
+          <div class="location-point">
+            <div class="location-icon">📍</div>
+            <div>
+              <div class="location-point-title">Adresse</div>
+              <div class="location-point-desc">Rue Socaver Ndogbong, Douala, Cameroun</div>
+            </div>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=Geneva+Hotel+Douala" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-arrow"><span>Itinéraire</span></a>
+      </div>
+      <div class="location-map" data-reveal="right" data-delay="2">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=9.68,4.03,9.72,4.07&layer=mapnik"
+          title="Localisation Geneva Hôtel Douala"
+          loading="lazy"
+          width="600" height="600">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-band">
+  <div class="container">
+    <div class="eyebrow" style="display:inline-flex;margin:0 auto 20px" data-reveal="up">Réservation</div>
+    <h2 class="display display-lg" data-reveal="up" data-delay="1">Planifiez votre<br>séjour idéal</h2>
+    <p data-reveal="up" data-delay="2">Notre équipe est disponible 24h/24 pour vous accompagner dans votre réservation et répondre à toutes vos questions.</p>
+    <div data-reveal="up" data-delay="3">
+      <a href="contact.html#booking" class="btn btn-gold"><span>Réserver maintenant</span></a>
+    </div>
+    <div class="cta-contacts" data-reveal="up" data-delay="4">
+      <div class="cta-contact-item">
+        <span class="cta-contact-label">Téléphone</span>
+        <a href="tel:+237659898989" class="cta-contact-val">+237 6 59 89 89 89</a>
+      </div>
+      <div class="cta-contact-item">
+        <span class="cta-contact-label">Email</span>
+        <a href="/cdn-cgi/l/email-protection#502235233522263124393f3e1037353e352631383f24353c343f25313c317e333f3d" class="cta-contact-val"><span class="__cf_email__" data-cfemail="a9dbccdaccdbdfc8ddc0c6c7e9ceccc7ccdfc8c1c6ddccc5cdc6dcc8c5c887cac6c4">[email&#160;protected]</span></a>
+      </div>
+      <div class="cta-contact-item">
+        <span class="cta-contact-label">WhatsApp</span>
+        <a href="https://wa.me/237659898989" class="cta-contact-val">+237 6 52 18 52 18</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Geneva<em>.</em></span>
+        <p>Votre havre de confort et de beauté tropicale au cœur de Douala. Home in better — depuis 2019.</p>
+        <div class="footer-socials">
+          <a href="https://facebook.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://instagram.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a href="https://twitter.com/genevahotel237" class="footer-social" target="_blank" rel="noopener" aria-label="Twitter">𝕏</a>
+          <a href="https://linkedin.com/company/genevahoteldouala" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Hôtel</div>
+        <ul>
+          <li><a href="a-propos.html">Notre Histoire</a></li>
+          <li><a href="hebergement.html">Chambres & Suites</a></li>
+          <li><a href="restaurant.html">Restaurant</a></li>
+          <li><a href="services.html">Rooftop & Piscine</a></li>
+          <li><a href="evenements.html">Événements</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Informations</div>
+        <ul>
+          <li><a href="a-propos.html">Notre Histoire</a></li>
+          <li><a href="actualites.html">Actualités</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="evenements.html">Événements</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <ul>
+          <li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li>
+          <li><a href="tel:+237652185218">+237 6 52 18 52 18</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#f0939f9e84919384b097959e958691989f84959c949f85919c91de939f9d"><span class="__cf_email__" data-cfemail="f1929e9f85909285b196949f948790999e85949d959e84909d90df929e9c">[email&#160;protected]</span></a></li>
+          <li><a href="https://maps.google.com/?q=Geneva+Hotel+Douala" target="_blank" rel="noopener">Rue Socaver Ndogbong, Douala</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span> — Tous droits réservés.</div>
+      <div class="footer-copy">
+        <a href="#" style="margin-right:20px">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js"></script>
+<script>
+// Horizontal rooms drag scroll
+const scroll = document.getElementById('roomsScroll');
+let isDown = false, startX, scrollLeft;
+scroll.addEventListener('mousedown', e => { isDown = true; scroll.style.cursor = 'grabbing'; startX = e.pageX - scroll.offsetLeft; scroll

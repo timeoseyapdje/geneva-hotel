@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chambres et suites Geneva Hôtel Douala — Prestige, Deluxe, Premium. Découvrez nos hébergements de luxe.">
+<title>Hébergement — Geneva Hôtel Douala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero {
+  height: 60vh; min-height: 500px;
+  position: relative;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+.page-hero-bg { position: absolute; inset: 0; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(11,9,6,0.4) 0%, rgba(11,9,6,0.85) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  padding: 0 48px 72px;
+  max-width: 1320px; margin: 0 auto; width: 100%;
+}
+.page-hero-content .eyebrow { display: flex; margin-bottom: 16px; }
+.page-title { font-family: var(--serif); font-size: clamp(3rem,6vw,5.5rem); font-weight: 400; color: var(--white); line-height: 1; }
+
+/* Rooms list */
+.rooms-page { padding: 100px 0; }
+.room-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 580px;
+  margin-bottom: 2px;
+  overflow: hidden;
+}
+.room-feature:nth-child(even) { direction: rtl; }
+.room-feature:nth-child(even) > * { direction: ltr; }
+.room-feature-visual { position: relative; overflow: hidden; }
+.room-feature-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform 8s ease; }
+.room-feature-visual:hover img { transform: scale(1.04); }
+.room-feature-body {
+  background: var(--warm);
+  padding: 72px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  border: 1px solid var(--border);
+}
+.room-feature-tag {
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 16px;
+}
+.room-feature-name {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400; color: var(--cream);
+  line-height: 1.1; margin-bottom: 24px;
+}
+.room-feature-specs {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.rf-spec {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.rf-spec-val {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 400; color: var(--gold);
+}
+.rf-spec-label {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.room-feature-desc {
+  font-size: 14px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.9;
+  margin-bottom: 28px;
+}
+.room-feature-amenities {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.amenity {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; color: var(--text-dim);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* gallery strip */
+.room-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 100px;
+}
+.room-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: opacity 0.3s; }
+.room-gallery img:hover { opacity: 0.85; }
+
+@media (max-width: 900px) {
+  .room-feature { grid-template-columns: 1fr; min-height: auto; }
+  .room-feature:nth-child(even) { direction: ltr; }
+  .room-feature-body { padding: 48px 32px; }
+  .room-gallery { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .page-hero-content { padding: 0 24px 60px; }
+  .room-gallery { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="hebergement.html" class="active">Hébergement</a></li>
+    <li><a href="restaurant.html">Restaurant</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">FR | EN</span>
+    <a href="contact.html#booking" class="nav-cta">Réserver</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-drawer" id="drawer">
+  <a href="hebergement.html">Hébergement</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="services.html">Services</a>
+  <a href="evenements.html">Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#booking" class="nav-cta">Réserver</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&q=80&auto=format&fit=crop" alt="Chambres Geneva Hôtel" fetchpriority="high" width="1800" height="1200">
+  </div>
+  <div class="page-hero-content">
+    <div class="eyebrow">Hébergement</div>
+    <h1 class="page-title">Chambres<br>& Suites</h1>
+  </div>
+</section>
+
+<section class="rooms-page">
+  <div class="container">
+
+    <!-- Suite Prestige -->
+    <div class="room-feature" data-reveal="up">
+      <div class="room-feature-visual">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80&auto=format&fit=crop" alt="Suite Prestige" loading="lazy" width="900" height="1200">
+      </div>
+      <div class="room-feature-body">
+        <span class="room-feature-tag">Notre suite signature</span>
+        <h2 class="room-feature-name">Suite Prestige</h2>
+        <div class="room-feature-specs">
+          <div class="rf-spec"><span class="rf-spec-val">80</span><span class="rf-spec-label">m² Surface</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">2</span><span class="rf-spec-label">Lits King</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">2</span><span class="rf-spec-label">Salles de bain</span></div>
+        </div>
+        <p class="room-feature-desc">Notre suite la plus spacieuse, conçue pour une expérience ultime de confort et de luxe. Salon séparé, vue panoramique, équipements haut de gamme.</p>
+        <div class="room-feature-amenities">
+          <span class="amenity">📶 WiFi Haut débit</span>
+          <span class="amenity">❄️ Climatisation</span>
+          <span class="amenity">📺 Smart TV 65"</span>
+          <span class="amenity">☕ Machine Nespresso</span>
+          <span class="amenity">🛁 Baignoire balnéo</span>
+          <span class="amenity">🍾 Minibar premium</span>
+        </div>
+        <a href="contact.html#booking" class="btn btn-gold"><span>Réserver cette suite</span></a>
+      </div>
+    </div>
+
+    <!-- Suite Deluxe -->
+    <div class="room-feature" data-reveal="up">
+      <div class="room-feature-visual">
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900&q=80&auto=format&fit=crop" alt="Suite Deluxe" loading="lazy" width="900" height="1200">
+      </div>
+      <div class="room-feature-body">
+        <span class="room-feature-tag">Suite</span>
+        <h2 class="room-feature-name">Suite Deluxe</h2>
+        <div class="room-feature-specs">
+          <div class="rf-spec"><span class="rf-spec-val">56</span><span class="rf-spec-label">m² Surface</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">1</span><span class="rf-spec-label">Lit King</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">1</span><span class="rf-spec-label">Salle de bain</span></div>
+        </div>
+        <p class="room-feature-desc">Espace de vie généreux avec coin salon, décoration soignée mêlant modernité et touches africaines. Idéale pour un séjour prolongé.</p>
+        <div class="room-feature-amenities">
+          <span class="amenity">📶 WiFi</span>
+          <span class="amenity">❄️ Climatisation</span>
+          <span class="amenity">📺 Smart TV 55"</span>
+          <span class="amenity">☕ Nespresso</span>
+          <span class="amenity">🚿 Douche à l'italienne</span>
+        </div>
+        <a href="contact.html#booking" class="btn btn-outline"><span>Réserver</span></a>
+      </div>
+    </div>
+
+    <!-- Chambre Prestige -->
+    <div class="room-feature" data-reveal="up">
+      <div class="room-feature-visual">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=80&auto=format&fit=crop" alt="Chambre Prestige" loading="lazy" width="900" height="1200">
+      </div>
+      <div class="room-feature-body">
+        <span class="room-feature-tag">Chambre</span>
+        <h2 class="room-feature-name">Chambre Prestige</h2>
+        <div class="room-feature-specs">
+          <div class="rf-spec"><span class="rf-spec-val">26</span><span class="rf-spec-label">m² Surface</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">1</span><span class="rf-spec-label">Lit King</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">1</span><span class="rf-spec-label">Salle de bain</span></div>
+        </div>
+        <p class="room-feature-desc">Chambre contemporaine avec finitions soignées. Literie premium, salle de bain en marbre, vue sur la ville.</p>
+        <div class="room-feature-amenities">
+          <span class="amenity">📶 WiFi</span>
+          <span class="amenity">❄️ Climatisation</span>
+          <span class="amenity">📺 Smart TV 49"</span>
+          <span class="amenity">🍫 Minibar</span>
+        </div>
+        <a href="contact.html#booking" class="btn btn-outline"><span>Réserver</span></a>
+      </div>
+    </div>
+
+    <!-- Chambre Premium -->
+    <div class="room-feature" data-reveal="up">
+      <div class="room-feature-visual">
+        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=900&q=80&auto=format&fit=crop" alt="Chambre Premium" loading="lazy" width="900" height="1200">
+      </div>
+      <div class="room-feature-body">
+        <span class="room-feature-tag">Chambre</span>
+        <h2 class="room-feature-name">Chambre Premium</h2>
+        <div class="room-feature-specs">
+          <div class="rf-spec"><span class="rf-spec-val">21</span><span class="rf-spec-label">m² Surface</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">1</span><span class="rf-spec-label">Lit Queen</span></div>
+          <div class="rf-spec"><span class="rf-spec-val">1</span><span class="rf-spec-label">Salle de bain</span></div>
+        </div>
+        <p class="room-feature-desc">Notre chambre d'entrée de gamme alliant confort et fonctionnalité. Idéale pour les voyageurs d'affaires ou les courts séjours.</p>
+        <div class="room-feature-amenities">
+          <span class="amenity">📶 WiFi</span>
+          <span class="amenity">❄️ Climatisation</span>
+          <span class="amenity">📺 TV 43"</span>
+          <span class="amenity">🏢 Bureau</span>
+        </div>
+        <a href="contact.html#booking" class="btn btn-outline"><span>Réserver</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Gallery strip -->
+  <div class="container">
+    <div class="room-gallery" data-reveal="up">
+      <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80&auto=format&fit=crop" alt="Salle de bain" loading="lazy" width="800" height="600">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80&auto=format&fit=crop" alt="Salon" loading="lazy" width="500" height="375">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80&auto=format&fit=crop" alt="Vue chambre" loading="lazy" width="500" height="375">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Geneva<em>.</em></span>
+        <p>Votre havre de confort et de beauté tropicale au cœur de Douala.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social">f</a><a href="#" class="footer-social">ig</a><a href="#" class="footer-social">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Hôtel</div><ul><li><a href="index.html">Accueil</a></li><li><a href="hebergement.html">Chambres</a></li><li><a href="restaurant.html">Restaurant</a></li><li><a href="services.html">Services</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><ul><li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li><li><a href="mailto:reservation@genevahoteldouala.com">reservation@genevahoteldouala.com</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Réserver</div><ul><li><a href="contact.html#booking">Disponibilités</a></li><li><a href="contact.html">Nous contacter</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span></div>
+      <div class="footer-copy"><a href="#">Mentions légales</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FAQ Geneva Hôtel Douala — Toutes les réponses à vos questions sur la réservation, les chambres, les services, le check-in et check-out.">
+<title>FAQ — Geneva Hôtel Douala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── HERO MINIMAL ── */
+.faq-hero {
+  min-height: 45vh;
+  display: flex; align-items: flex-end;
+  padding-top: var(--nav-h);
+  background: var(--deep);
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.faq-hero::before {
+  content: 'FAQ';
+  position: absolute; right: -20px; bottom: -40px;
+  font-family: var(--serif);
+  font-size: 280px; font-weight: 900;
+  color: rgba(255,255,255,0.02);
+  line-height: 1; pointer-events: none;
+  letter-spacing: -0.04em;
+}
+.faq-hero-content {
+  position: relative; z-index: 2;
+  padding: 0 48px 72px;
+  max-width: 1320px; margin: 0 auto; width: 100%;
+}
+.faq-hero-content .eyebrow { display: flex; margin-bottom: 16px; }
+.faq-hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 400; color: var(--white); line-height: 1;
+}
+.faq-hero-sub {
+  font-size: 15px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.8;
+  max-width: 500px; margin-top: 20px;
+}
+
+/* ── SEARCH ── */
+.faq-search-bar {
+  padding: 40px 0;
+  background: var(--warm);
+  border-bottom: 1px solid var(--border);
+}
+.faq-search-inner {
+  max-width: 640px; margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+}
+.faq-search-input {
+  width: 100%;
+  background: var(--black);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  padding: 16px 52px 16px 20px;
+  font-family: var(--sans);
+  font-size: 14px; font-weight: 300;
+  transition: border-color 0.25s;
+  display: block;
+}
+.faq-search-input:focus { border-color: rgba(201,168,92,0.5); outline: none; }
+.faq-search-input::placeholder { color: var(--text-dim); }
+.faq-search-icon {
+  position: absolute;
+  right: 68px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim); font-size: 16px;
+  pointer-events: none;
+}
+
+/* ── FAQ LAYOUT ── */
+.faq-main { padding: 80px 0 120px; }
+.faq-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Category nav */
+.faq-categories {
+  position: sticky; top: 100px;
+}
+.faq-cat-title {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.faq-cat-list { list-style: none; }
+.faq-cat-item { margin-bottom: 4px; }
+.faq-cat-btn {
+  width: 100%;
+  text-align: left;
+  background: none; border: none;
+  padding: 10px 16px;
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 300;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.25s;
+  border-left: 2px solid transparent;
+}
+.faq-cat-btn:hover { color: var(--cream); border-left-color: rgba(201,168,92,0.3); }
+.faq-cat-btn.active { color: var(--gold); border-left-color: var(--gold); background: var(--gold-dim); }
+
+/* FAQ groups */
+.faq-group { margin-bottom: 60px; display: none; }
+.faq-group.visible { display: block; }
+.faq-group-title {
+  font-family: var(--serif);
+  font-size: 28px; font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 14px;
+}
+.faq-group-icon { font-size: 22px; }
+
+/* Accordion items */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  background: none; border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+.faq-question-text {
+  font-size: 15px; font-weight: 400;
+  color: var(--cream); line-height: 1.4;
+  transition: color 0.25s;
+}
+.faq-question:hover .faq-question-text { color: var(--gold); }
+.faq-item.open .faq-question-text { color: var(--gold); }
+.faq-chevron {
+  width: 28px; height: 28px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 10px; color: var(--text-dim);
+  transition: all 0.3s var(--ease);
+}
+.faq-item.open .faq-chevron {
+  background: var(--gold); color: var(--black);
+  border-color: var(--gold);
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s var(--ease);
+}
+.faq-answer-inner {
+  padding: 0 0 24px;
+  font-size: 14px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.9;
+}
+.faq-answer-inner a { color: var(--gold); transition: opacity 0.2s; }
+.faq-answer-inner a:hover { opacity: 0.75; }
+.faq-answer-inner strong { color: var(--cream); font-weight: 500; }
+
+/* Contact block at bottom */
+.faq-contact-cta {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 40px 44px;
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px; flex-wrap: wrap;
+}
+.faq-contact-cta-text h3 {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 400;
+  color: var(--cream); margin-bottom: 8px;
+}
+.faq-contact-cta-text p {
+  font-size: 13px; font-weight: 300;
+  color: var(--text-dim);
+}
+.faq-contact-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+  .faq-categories { position: static; }
+  .faq-cat-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .faq-cat-item { margin-bottom: 0; }
+  .faq-group { display: block !important; }
+  .faq-hero-content, .faq-search-inner { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 600px) {
+  .faq-hero::before { font-size: 160px; }
+  .faq-contact-cta { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="hebergement.html">Hébergement</a></li>
+    <li><a href="restaurant.html">Restaurant</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">FR | EN</span>
+    <a href="contact.html#booking" class="nav-cta">Réserver</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-drawer" id="drawer">
+  <a href="hebergement.html">Hébergement</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="services.html">Services</a>
+  <a href="evenements.html">Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#booking" class="nav-cta">Réserver</a>
+</div>
+
+<!-- HERO -->
+<section class="faq-hero">
+  <div class="faq-hero-content">
+    <div class="eyebrow">Questions fréquentes</div>
+    <h1 class="faq-hero-title">FAQ</h1>
+    <p class="faq-hero-sub">Toutes les réponses à vos questions. Si vous ne trouvez pas ce que vous cherchez, notre équipe est disponible 24h/24.</p>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="faq-search-bar">
+  <div class="faq-search-inner">
+    <input
+      class="faq-search-input"
+      type="text"
+      id="faqSearch"
+      placeholder="Rechercher une question…"
+      autocomplete="off">
+    <span class="faq-search-icon">🔍</span>
+  </div>
+</div>
+
+<!-- FAQ CONTENT -->
+<section class="faq-main">
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- Categories sidebar -->
+      <nav class="faq-categories">
+        <span class="faq-cat-title">Catégories</span>
+        <ul class="faq-cat-list">
+          <li class="faq-cat-item"><button class="faq-cat-btn active" data-target="all">Tout afficher</button></li>
+          <li class="faq-cat-item"><button class="faq-cat-btn" data-target="reservation">🗓 Réservation</button></li>
+          <li class="faq-cat-item"><button class="faq-cat-btn" data-target="sejour">🏨 Séjour</button></li>
+          <li class="faq-cat-item"><button class="faq-cat-btn" data-target="services">✨ Services</button></li>
+          <li class="faq-cat-item"><button class="faq-cat-btn" data-target="restaurant">🍽 Restaurant</button></li>
+          <li class="faq-cat-item"><button class="faq-cat-btn" data-target="transport">🚗 Transport</button></li>
+          <li class="faq-cat-item"><button class="faq-cat-btn" data-target="evenements">🎪 Événements</button></li>
+        </ul>
+      </nav>
+
+      <!-- Questions -->
+      <div class="faq-content">
+
+        <!-- RÉSERVATION -->
+        <div class="faq-group visible" id="group-reservation">
+          <h2 class="faq-group-title"><span class="faq-group-icon">🗓</span>Réservation & Paiement</h2>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Comment effectuer une réservation ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Vous pouvez réserver de plusieurs façons : via notre <a href="contact.html#booking">formulaire en ligne</a>, par téléphone au <a href="tel:+237659898989">+237 6 59 89 89 89</a>, par WhatsApp au <a href="https://wa.me/237659898989">+237 6 52 18 52 18</a>, ou par email à <a href="mailto:reservation@genevahoteldouala.com">reservation@genevahoteldouala.com</a>. Notre équipe répond dans un délai maximum de 2 heures.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Quels modes de paiement sont acceptés ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Nous acceptons les <strong>cartes Visa et Mastercard</strong>, les <strong>virements bancaires</strong>, le <strong>cash (XAF, EUR, USD)</strong> et les <strong>paiements Mobile Money</strong> (Orange Money, MTN Mobile Money). Le paiement peut être effectué à l'arrivée ou à l'avance selon la formule choisie.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Quelle est la politique d'annulation ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Les annulations effectuées <strong>plus de 48h avant l'arrivée</strong> sont gratuites et intégralement remboursées. Pour les annulations entre 24h et 48h avant l'arrivée, une nuit est facturée. En cas de no-show ou d'annulation moins de 24h avant, le montant total du séjour est dû. Des conditions spéciales s'appliquent aux tarifs non remboursables.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Un acompte est-il requis à la réservation ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Pour les séjours de moins de 3 nuits, aucun acompte n'est requis. Pour les séjours plus longs ou les groupes, un acompte de <strong>30% du montant total</strong> peut être demandé pour confirmer la réservation. Pour les événements, des conditions spécifiques s'appliquent.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Puis-je modifier ma réservation après confirmation ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui, les modifications sont possibles jusqu'à <strong>24h avant l'arrivée</strong> sous réserve de disponibilité. Pour modifier votre réservation, contactez-nous par téléphone ou WhatsApp. Les changements de dates ou de type de chambre sont traités sans frais supplémentaires dans la plupart des cas.
+            </div></div>
+          </div>
+        </div>
+
+        <!-- SÉJOUR -->
+        <div class="faq-group visible" id="group-sejour">
+          <h2 class="faq-group-title"><span class="faq-group-icon">🏨</span>Séjour & Chambres</h2>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Quels sont les horaires de check-in et check-out ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Le <strong>check-in est à partir de 14h00</strong> et le <strong>check-out avant 12h00</strong>. Un early check-in (à partir de 10h) et un late check-out (jusqu'à 16h) sont disponibles sous réserve de disponibilité et peuvent faire l'objet d'une facturation supplémentaire. Votre bagage peut être conservé gratuitement avant et après ces horaires.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Le petit-déjeuner est-il inclus dans le tarif ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Cela dépend de la formule choisie. Certains tarifs incluent le petit-déjeuner buffet, d'autres non. L'information est clairement indiquée lors de la réservation. Le buffet est servi chaque matin de <strong>06h30 à 10h30</strong> au restaurant Le Sylvania. Des produits locaux frais, viennoiseries, fruits tropicaux et jus naturels sont au menu.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Y a-t-il le WiFi dans les chambres ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui, le <strong>WiFi haut débit est gratuit</strong> dans tout l'hôtel — chambres, restaurant, lobby, piscine et espaces communs. Le réseau est sécurisé et vous recevrez vos identifiants à l'arrivée. Pour les besoins professionnels intensifs, notre Business Center dispose d'une connexion dédiée encore plus rapide.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Les animaux de compagnie sont-ils acceptés ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Geneva Hôtel n'accepte pas les animaux de compagnie dans les chambres. Si vous voyagez avec un animal, nous vous recommandons de vous renseigner sur les structures d'accueil animalier à Douala — notre conciergerie peut vous aider à trouver une solution adaptée.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Y a-t-il un parking à l'hôtel ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui, Geneva Hôtel dispose d'un <strong>parking sécurisé</strong> pour les clients. Le parking est gardienné et surveillé 24h/24. Des places sont disponibles pour les véhicules standards et les SUV. Signalez votre véhicule à la réception pour tout accès facilité.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Les chambres sont-elles climatisées ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Toutes nos chambres et suites sont équipées de <strong>climatisation individuelle et silencieuse</strong>, réglable selon vos préférences. La température peut être ajustée entre 18°C et 28°C. Compte tenu du climat tropical de Douala, nous vous recommandons une température autour de 22°C pour un confort optimal.
+            </div></div>
+          </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="faq-group visible" id="group-services">
+          <h2 class="faq-group-title"><span class="faq-group-icon">✨</span>Services & Équipements</h2>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">La piscine rooftop est-elle accessible à tous les clients ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              La piscine rooftop est accessible à tous les résidents de l'hôtel. Elle est ouverte de <strong>10h00 à 22h00</strong> tous les jours. Des créneaux peuvent être réservés pour une utilisation exclusive (événements privés). Des serviettes sont fournies gratuitement. Le bar poolside est ouvert pendant les heures d'ouverture de la piscine.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Comment réserver un soin au spa ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Vous pouvez réserver vos soins spa directement auprès de la réception ou via WhatsApp. Nous recommandons de réserver au moins <strong>24h à l'avance</strong>, surtout pour les week-ends. Les soins disponibles incluent massages relaxants, soins du visage, enveloppements corporels et forfaits duo. Consultez notre <a href="services.html">page Services</a> pour la liste complète et les tarifs.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Y a-t-il un service de blanchisserie ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui, nous proposons un <strong>service de blanchisserie et pressing</strong> avec retour sous 24h (service express sous 4h disponible). Les tarifs varient selon le type de vêtements. Déposez votre linge en réception avant 10h pour une livraison le lendemain avant 18h.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Le service en chambre est-il disponible 24h/24 ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Le room service est disponible <strong>de 06h30 à 23h00</strong>. Pour les demandes en dehors de ces horaires, un service de nuit limité (boissons, snacks) est disponible. Vous pouvez commander via le téléphone de votre chambre en composant le 0 pour la réception.
+            </div></div>
+          </div>
+        </div>
+
+        <!-- RESTAURANT -->
+        <div class="faq-group visible" id="group-restaurant">
+          <h2 class="faq-group-title"><span class="faq-group-icon">🍽</span>Restaurant Le Sylvania</h2>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Faut-il réserver une table au restaurant ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              La réservation n'est pas obligatoire mais <strong>vivement recommandée</strong>, surtout le week-end et pour les groupes de plus de 4 personnes. Vous pouvez réserver par téléphone, WhatsApp ou directement à la réception de l'hôtel. Le restaurant est également ouvert aux clients extérieurs à l'hôtel.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Des menus végétariens ou pour allergies sont-ils disponibles ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui, notre chef peut adapter les plats pour les régimes <strong>végétariens, végétaliens, sans gluten et sans lactose</strong>. Merci de nous informer de vos restrictions alimentaires lors de la réservation ou à votre arrivée. Certains plats du menu sont déjà marqués comme végétariens ou adaptables.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Le restaurant est-il ouvert aux non-résidents ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Absolument. Le restaurant Le Sylvania est ouvert à tous, résidents comme non-résidents. Nous accueillons régulièrement des clients de passage, des équipes d'entreprise pour des déjeuners d'affaires et des familles pour des célébrations. Ouvert tous les jours de <strong>06h30 à 22h30</strong>.
+            </div></div>
+          </div>
+        </div>
+
+        <!-- TRANSPORT -->
+        <div class="faq-group visible" id="group-transport">
+          <h2 class="faq-group-title"><span class="faq-group-icon">🚗</span>Transport & Accès</h2>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Proposez-vous une navette depuis l'aéroport ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui ! Notre service de navette aéroport est disponible <strong>24h/24, 7j/7</strong>. Merci de communiquer votre numéro de vol et heure d'arrivée lors de la réservation ou au moins 24h à l'avance. L'aéroport de Douala (DLA) est à seulement 12 minutes de l'hôtel. Des frais de transfert s'appliquent — renseignez-vous auprès de la réception.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Comment rejoindre l'hôtel depuis le centre-ville ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Geneva Hôtel est situé <strong>rue Socaver Ndogbong, Douala</strong>, à 15 minutes du centre d'affaires de Bonanjo en taxi. Vous pouvez utiliser un taxi conventionnel, Yango ou tout autre service de VTC disponible à Douala. Notre adresse complète : Rue Socaver Ndogbong, Ndogbong, Douala. Retrouvez-nous sur <a href="https://maps.google.com/?q=Geneva+Hotel+Douala" target="_blank" rel="noopener">Google Maps</a>.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Un service de chauffeur privé est-il disponible ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui, notre conciergerie peut organiser un <strong>service de chauffeur privé</strong> pour vos déplacements professionnels ou personnels à Douala et dans les environs. Réservez à l'avance pour garantir la disponibilité. Des véhicules de différentes catégories sont disponibles selon vos besoins.
+            </div></div>
+          </div>
+        </div>
+
+        <!-- ÉVÉNEMENTS -->
+        <div class="faq-group visible" id="group-evenements">
+          <h2 class="faq-group-title"><span class="faq-group-icon">🎪</span>Événements & Séminaires</h2>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Quelle est la capacité maximale pour un événement ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Notre <strong>Grand Salon</strong> peut accueillir jusqu'à <strong>200 personnes</strong> en configuration cocktail et 120 en configuration banquet. La Salle Ndogbong est idéale pour les réunions de 5 à 20 personnes. La Terrasse Rooftop convient aux cocktails de 30 à 150 personnes. Des configurations hybrides sont possibles selon vos besoins.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Les équipements audiovisuels sont-ils fournis ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Oui, toutes nos salles sont équipées de <strong>vidéoprojecteur ou écran LED, système audio, microphones, paperboard et pointeurs laser</strong>. La fibre optique dédiée est disponible pour les événements nécessitant une connexion intensive. Du personnel technique peut être mis à disposition sur demande.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-question-text">Proposez-vous des formules tout compris pour les séminaires ?</span>
+              <span class="faq-chevron">+</span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              Absolument. Nous proposons des <strong>packages séminaires journée ou résidentiel</strong> qui incluent la salle de réunion, les équipements, les pauses-café, les repas et l'hébergement des participants. Ces forfaits sont personnalisables selon la durée et le nombre de participants. Contactez notre équipe événements pour un devis sur mesure.
+            </div></div>
+          </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="faq-contact-cta" data-reveal="up">
+          <div class="faq-contact-cta-text">
+            <h3>Vous n'avez pas trouvé votre réponse ?</h3>
+            <p>Notre équipe est disponible 24h/24 pour répondre à toutes vos questions.</p>
+          </div>
+          <div class="faq-contact-cta-btns">
+            <a href="https://wa.me/237659898989" class="btn btn-gold" target="_blank" rel="noopener"><span>WhatsApp</span></a>
+            <a href="contact.html" class="btn btn-outline"><span>Nous écrire</span></a>
+          </div>
+        </div>
+
+      </div><!-- /.faq-content -->
+    </div><!-- /.faq-layout -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Geneva<em>.</em></span>
+        <p>Votre havre de confort et de beauté tropicale au cœur de Douala. Home in better — depuis 2019.</p>
+        <div class="footer-socials">
+          <a href="https://facebook.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">f</a>
+          <a href="https://instagram.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">ig</a>
+          <a href="https://twitter.com/genevahotel237" class="footer-social" target="_blank" rel="noopener">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Hôtel</div><ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="hebergement.html">Chambres</a></li>
+        <li><a href="restaurant.html">Restaurant</a></li>
+        <li><a href="services.html">Services</a></li>
+      </ul></div>
+      <div class="footer-col"><div class="footer-col-title">À Propos</div><ul>
+        <li><a href="a-propos.html">Notre Histoire</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><ul>
+        <li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li>
+        <li><a href="mailto:contact@genevahoteldouala.com">contact@genevahoteldouala.com</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span> — Tous droits réservés.</div>
+      <div class="footer-copy"><a href="#" style="margin-right:20px">Mentions légales</a><a href="#">Confidentialité</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="main.js"></script>
+<script>
+// ── Accordion ──────────────────────────────
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+
+    // Open clicked if was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+// ── Category filter ──────────────────────────
+document.querySelectorAll('.faq-cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = btn.dataset.target;
+    document.querySelectorAll('.faq-group').forEach(g => {
+      if (target === 'all' || g.id === 'group-' + target) {
+        g.classList.add('visible');
+      } else {
+        g.classList.remove('visible');
+      }
+    });
+  });
+});
+
+// ── Live search ──────────────────────────────
+document.getElementById('faqSearch').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  if (!q) {
+    document.querySelectorAll('.faq-group').forEach(g => g.classList.add('visible'));
+    document.querySelectorAll('.faq-item').forEach(i => i.style.display = '');
+    return;
+  }
+  document.querySelectorAll('.faq-group').forEach(g => g.classList.add('visible'));
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(q) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>

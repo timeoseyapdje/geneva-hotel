@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'histoire de Geneva Hôtel Douala — notre vision, notre équipe, nos valeurs. Depuis 2019, l'excellence au cœur de Douala.">
+<title>À Propos — Geneva Hôtel Douala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── HERO ── */
+.page-hero {
+  height: 75vh; min-height: 580px;
+  position: relative;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero-bg { position: absolute; inset: 0; }
+.page-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(11,9,6,0.2) 0%, rgba(11,9,6,0.88) 100%),
+    linear-gradient(to right, rgba(11,9,6,0.5) 0%, transparent 60%);
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  padding: 0 48px 80px;
+  max-width: 1320px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+}
+.page-hero-left .eyebrow { display: flex; margin-bottom: 16px; }
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem,6vw,5.5rem);
+  font-weight: 400; color: var(--white); line-height: 1;
+}
+.page-hero-right {
+  display: flex; align-items: flex-end;
+  padding-bottom: 4px;
+}
+.hero-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  color: rgba(242,234,216,0.55);
+  line-height: 1.5;
+  max-width: 400px;
+}
+.hero-tagline em { color: var(--gold2); font-style: normal; }
+
+/* ── INTRO STATEMENT ── */
+.intro-statement {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+}
+.intro-statement-inner {
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.intro-statement h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 400; color: var(--cream);
+  line-height: 1.35; margin-bottom: 32px;
+}
+.intro-statement h2 em { font-style: italic; color: var(--gold); }
+.intro-statement p {
+  font-size: 16px; font-weight: 300;
+  color: var(--text-dim); line-height: 2;
+}
+
+/* ── STORY SPLIT ── */
+.story-section { padding: 120px 0; }
+.story-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 100px; align-items: center;
+  margin-bottom: 120px;
+}
+.story-grid:last-child { margin-bottom: 0; }
+.story-grid.reverse { direction: rtl; }
+.story-grid.reverse > * { direction: ltr; }
+.story-visual { position: relative; }
+.story-img {
+  width: 100%; aspect-ratio: 4/5;
+  object-fit: cover; display: block;
+}
+.story-img-caption {
+  position: absolute; bottom: -28px; right: 0;
+  background: var(--gold);
+  padding: 16px 24px;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--black);
+}
+.story-text .eyebrow { display: flex; margin-bottom: 20px; }
+.story-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem,3.5vw,3rem);
+  font-weight: 400; color: var(--cream);
+  line-height: 1.15; margin-bottom: 28px;
+}
+.story-text p {
+  font-size: 15px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.95;
+  margin-bottom: 16px;
+}
+.story-quote {
+  margin: 32px 0;
+  padding: 24px 28px;
+  background: var(--warm);
+  border-left: 3px solid var(--gold);
+}
+.story-quote p {
+  font-family: var(--serif);
+  font-style: italic; font-size: 18px;
+  font-weight: 400; color: var(--cream);
+  line-height: 1.6; margin: 0;
+}
+.story-quote cite {
+  display: block; margin-top: 12px;
+  font-style: normal; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── TIMELINE ── */
+.timeline-section {
+  padding: 100px 0;
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.timeline-header {
+  text-align: center; margin-bottom: 80px;
+}
+.timeline-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem,3.5vw,3rem);
+  font-weight: 400; color: var(--cream);
+  margin-top: 20px;
+}
+.timeline {
+  position: relative;
+  max-width: 900px; margin: 0 auto;
+  padding: 0 48px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold), var(--gold), transparent);
+  opacity: 0.25;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  margin-bottom: 64px;
+  align-items: center;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item-left { text-align: right; padding-right: 40px; }
+.timeline-item-right { padding-left: 40px; }
+.timeline-item.right .timeline-item-left { order: 3; text-align: left; padding-left: 40px; padding-right: 0; }
+.timeline-item.right .timeline-item-center { order: 2; }
+.timeline-item.right .timeline-item-right { order: 1; text-align: right; padding-right: 40px; padding-left: 0; }
+.timeline-item-center {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+}
+.timeline-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201,168,92,0.15);
+  flex-shrink: 0;
+}
+.timeline-year {
+  font-family: var(--serif);
+  font-size: 11px; font-weight: 400;
+  color: var(--gold); letter-spacing: 1px;
+  white-space: nowrap;
+}
+.timeline-content-title {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 400;
+  color: var(--cream); margin-bottom: 8px;
+}
+.timeline-content-text {
+  font-size: 13px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.7;
+}
+
+/* ── VALUES ── */
+.values-section { padding: 120px 0; }
+.values-header { text-align: center; margin-bottom: 70px; }
+.values-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem,3.5vw,3rem);
+  font-weight: 400; color: var(--cream); margin-top: 20px;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.value-card {
+  background: var(--warm);
+  padding: 56px 44px;
+  position: relative; overflow: hidden;
+  transition: background 0.4s;
+}
+.value-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.value-card:hover { background: var(--card); }
+.value-card:hover::before { transform: scaleX(1); }
+.value-icon {
+  font-size: 36px; display: block;
+  margin-bottom: 24px;
+}
+.value-name {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 400;
+  color: var(--cream); margin-bottom: 16px;
+}
+.value-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.9;
+}
+
+/* ── TEAM ── */
+.team-section {
+  padding: 0 0 120px;
+  background: var(--black);
+}
+.team-header { text-align: center; margin-bottom: 70px; }
+.team-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem,3.5vw,3rem);
+  font-weight: 400; color: var(--cream); margin-top: 20px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.team-card {
+  position: relative; overflow: hidden;
+  aspect-ratio: 3/4; cursor: default;
+}
+.team-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease), filter 0.4s;
+  filter: grayscale(0.3);
+}
+.team-card:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0);
+}
+.team-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+    rgba(11,9,6,0.92) 0%,
+    rgba(11,9,6,0.2) 50%,
+    transparent 100%);
+}
+.team-card-body {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 28px;
+  transform: translateY(8px);
+  transition: transform 0.4s var(--ease);
+}
+.team-card:hover .team-card-body { transform: translateY(0); }
+.team-name {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 400;
+  color: var(--white); margin-bottom: 6px;
+}
+.team-role {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold);
+}
+.team-bio {
+  font-size: 12px; font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7; margin-top: 12px;
+  opacity: 0;
+  transition: opacity 0.3s 0.1s;
+}
+.team-card:hover .team-bio { opacity: 1; }
+
+/* ── NUMBERS ── */
+.numbers-section {
+  padding: 80px 0;
+  background: var(--warm);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.numbers-row {
+  display: flex; justify-content: center;
+  flex-wrap: wrap; gap: 0;
+  max-width: 1000px; margin: 0 auto;
+}
+.num-item {
+  flex: 1; min-width: 160px;
+  padding: 0 40px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.num-item:last-child { border-right: none; }
+.num-val {
+  font-family: var(--serif);
+  font-size: 52px; font-weight: 400;
+  color: var(--gold); line-height: 1;
+  display: block; margin-bottom: 8px;
+}
+.num-label {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ── CTA bottom ── */
+.about-cta {
+  padding: 120px 0; text-align: center;
+  background: var(--black);
+  position: relative; overflow: hidden;
+}
+.about-cta::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,168,92,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.about-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem,3.5vw,3.5rem);
+  font-weight: 400; color: var(--cream);
+  margin: 20px 0 16px; position: relative;
+}
+.about-cta p {
+  font-size: 15px; font-weight: 300;
+  color: var(--text-dim); line-height: 1.9;
+  max-width: 500px; margin: 0 auto 40px;
+  position: relative;
+}
+.about-cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .story-grid { grid-template-columns: 1fr; gap: 60px; }
+  .story-grid.reverse { direction: ltr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .timeline::before { left: 28px; transform: none; }
+  .timeline { padding: 0 0 0 60px; }
+  .timeline-item { grid-template-columns: 40px 1fr; gap: 0; }
+  .timeline-item-left { display: none; }
+  .timeline-item-center { flex-direction: row; justify-content: flex-start; }
+  .timeline-item.right { direction: ltr; }
+  .timeline-item.right .timeline-item-left { display: none; }
+  .timeline-item.right .timeline-item-center { order: 1; }
+  .timeline-item.right .timeline-item-right { order: 2; text-align: left; padding-left: 16px; padding-right: 0; }
+  .timeline-item-right { padding-left: 16px; text-align: left !important; padding-right: 0 !important; order: 2; }
+}
+@media (max-width: 768px) {
+  .page-hero-content { grid-template-columns: 1fr; padding: 0 24px 60px; }
+  .page-hero-right { display: none; }
+  .values-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .num-item { flex: 1 1 45%; border-bottom: 1px solid var(--border); }
+}
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Geneva<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="hebergement.html">Hébergement</a></li>
+    <li><a href="restaurant.html">Restaurant</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="evenements.html">Événements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">FR | EN</span>
+    <a href="contact.html#booking" class="nav-cta">Réserver</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-drawer" id="drawer">
+  <a href="hebergement.html">Hébergement</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="services.html">Services</a>
+  <a href="evenements.html">Événements</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html#booking" class="nav-cta">Réserver</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img
+      src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=80&auto=format&fit=crop"
+      alt="Geneva Hôtel Douala extérieur"
+      fetchpriority="high" width="1800" height="1200">
+  </div>
+  <div class="page-hero-content">
+    <div class="page-hero-left">
+      <div class="eyebrow">Notre histoire</div>
+      <h1 class="page-title">À Propos<br>de Nous</h1>
+    </div>
+    <div class="page-hero-right">
+      <p class="hero-tagline">
+        Depuis 2019, Geneva Hôtel incarne une vision : offrir à Douala un <em>art de vivre</em> où l'hospitalité africaine rencontre l'excellence internationale.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO STATEMENT -->
+<section class="intro-statement">
+  <div class="container">
+    <div class="intro-statement-inner" data-reveal="up">
+      <h2>
+        Nous croyons que chaque séjour est<br>
+        une histoire qui mérite d'être <em>magnifique</em>.
+      </h2>
+      <p>
+        Geneva Hôtel n'est pas simplement un lieu d'hébergement. C'est un espace où les voyageurs du monde entier se retrouvent, où les affaires se concluent autour d'un bon repas, où les familles créent des souvenirs inoubliables. Notre mission depuis le premier jour : vous offrir chez vous, en mieux.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="container">
+
+    <div class="story-grid" data-reveal="up">
+      <div class="story-visual">
+        <img
+          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop"
+          alt="Fondateurs Geneva Hôtel"
+          class="story-img" loading="lazy" width="800" height="1000">
+        <div class="story-img-caption">Fondé en 2019</div>
+      </div>
+      <div class="story-text">
+        <div class="eyebrow">Les débuts</div>
+        <h2>Une vision née<br>à Douala</h2>
+        <p>Tout a commencé avec une conviction forte : Douala, capitale économique du Cameroun et carrefour de l'Afrique centrale, méritait un hôtel qui soit à la hauteur de son ambition et de son dynamisme.</p>
+        <p>En 2019, Geneva Hôtel ouvre ses portes rue Socaver Ndogbong, à quelques minutes de l'aéroport international. Le projet est simple dans son énoncé, ambitieux dans sa réalisation : créer un espace qui combine le meilleur de l'hospitalité africaine avec les standards les plus élevés de l'hôtellerie internationale.</p>
+        <div class="story-quote">
+          <p>"Nous ne voulions pas construire un hôtel de plus. Nous voulions créer un chez-soi, en mieux."</p>
+          <cite>— Fondateurs, Geneva Hôtel</cite>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-grid reverse" data-reveal="up">
+      <div class="story-visual">
+        <img
+          src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80&auto=format&fit=crop"
+          alt="Chambres Geneva Hôtel"
+          class="story-img" loading="lazy" width="800" height="1000">
+        <div class="story-img-caption">50+ chambres & suites</div>
+      </div>
+      <div class="story-text">
+        <div class="eyebrow">L'excellence</div>
+        <h2>Chaque détail,<br>pensé pour vous</h2>
+        <p>Chaque chambre a été conçue avec soin : literie premium, climatisation silencieuse, matériaux locaux soigneusement sélectionnés. L'architecture intérieure mêle modernité et références à la richesse culturelle du Cameroun et de l'Afrique centrale.</p>
+        <p>Le restaurant Le Sylvania, notre piscine rooftop avec vue panoramique sur Douala, nos espaces de bien-être — chaque élément de Geneva Hôtel a été pensé pour enrichir votre expérience et dépasser vos attentes.</p>
+        <a href="hebergement.html" class="btn btn-outline btn-arrow" style="margin-top:28px"><span>Découvrir nos chambres</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="timeline-header" data-reveal="up">
+      <div class="eyebrow" style="display:inline-flex;margin:0 auto 20px">Notre parcours</div>
+      <h2>Les grandes étapes</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item" data-reveal="up">
+        <div class="timeline-item-left">
+          <div class="timeline-content-title">Fondation</div>
+          <div class="timeline-content-text">Lancement du projet Geneva Hôtel. Début de la construction rue Socaver Ndogbong, Douala.</div>
+        </div>
+        <div class="timeline-item-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2017</div>
+        </div>
+        <div class="timeline-item-right"></div>
+      </div>
+
+      <div class="timeline-item right" data-reveal="up">
+        <div class="timeline-item-left"></div>
+        <div class="timeline-item-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2019</div>
+        </div>
+        <div class="timeline-item-right">
+          <div class="timeline-content-title">Ouverture officielle</div>
+          <div class="timeline-content-text">Geneva Hôtel accueille ses premiers clients. Inauguration en présence des autorités locales et partenaires.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal="up">
+        <div class="timeline-item-left">
+          <div class="timeline-content-title">Restaurant Le Sylvania</div>
+          <div class="timeline-content-text">Ouverture du restaurant gastronomique Le Sylvania, fusion de saveurs africaines et contemporaines.</div>
+        </div>
+        <div class="timeline-item-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2020</div>
+        </div>
+        <div class="timeline-item-right"></div>
+      </div>
+
+      <div class="timeline-item right" data-reveal="up">
+        <div class="timeline-item-left"></div>
+        <div class="timeline-item-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021</div>
+        </div>
+        <div class="timeline-item-right">
+          <div class="timeline-content-title">Rooftop Piscine</div>
+          <div class="timeline-content-text">Inauguration de la terrasse et piscine panoramique en rooftop. Nouveau bar poolside avec vue imprenable sur Douala.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal="up">
+        <div class="timeline-item-left">
+          <div class="timeline-content-title">Distinction 4 étoiles</div>
+          <div class="timeline-content-text">Geneva Hôtel obtient sa classification 4 étoiles officielle, reconnaissant le niveau d'excellence de nos services.</div>
+        </div>
+        <div class="timeline-item-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022</div>
+        </div>
+        <div class="timeline-item-right"></div>
+      </div>
+
+      <div class="timeline-item right" data-reveal="up">
+        <div class="timeline-item-left"></div>
+        <div class="timeline-item-center">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2023</div>
+        </div>
+        <div class="timeline-item-right">
+          <div class="timeline-content-title">Expansion des services</div>
+          <div class="timeline-content-text">Lancement du Spa & Fitness Center. Accueil de délégations internationales et de l'équipe nationale du Burundi.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-reveal="up">
+        <div class="timeline-item-left">
+          <div class="timeline-content-title">Aujourd'hui & demain</div>
+          <div class="timeline-content-text">Geneva Hôtel continue de grandir et d'innover pour rester la référence de l'hospitalité à Douala et en Afrique centrale.</div>
+        </div>
+        <div class="timeline-item-center">
+          <div class="timeline-dot" style="background:var(--gold2);box-shadow:0 0 0 8px rgba(201,168,92,0.15)"></div>
+          <div class="timeline-year">2024</div>
+        </div>
+        <div class="timeline-item-right"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="container">
+    <div class="values-header" data-reveal="up">
+      <div class="eyebrow" style="display:inline-flex;margin:0 auto 20px">Ce qui nous guide</div>
+      <h2>Nos Valeurs</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card" data-reveal="up">
+        <span class="value-icon">🌍</span>
+        <div class="value-name">Ancrage africain</div>
+        <div class="value-desc">Nous célébrons la richesse de la culture camerounaise et africaine dans chaque aspect de notre hôtel — architecture, cuisine, art, hospitalité. L'Afrique est notre force, notre identité.</div>
+      </div>
+      <div class="value-card" data-reveal="up" data-delay="1">
+        <span class="value-icon">⭐</span>
+        <div class="value-name">Excellence sans compromis</div>
+        <div class="value-desc">Chaque détail compte. De la literie premium aux finitions de nos suites, du sourire de notre personnel à la qualité de chaque plat — nous refusons la médiocrité à chaque étape.</div>
+      </div>
+      <div class="value-card" data-reveal="up" data-delay="2">
+        <span class="value-icon">🤝</span>
+        <div class="value-name">Hospitalité sincère</div>
+        <div class="value-desc">L'hospitalité africaine est reconnue dans le monde entier pour sa chaleur et son authenticité. Chez Geneva Hôtel, chaque client est accueilli comme un hôte de marque, pas comme un numéro.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers-section" data-counters>
+  <div class="container">
+    <div class="numbers-row">
+      <div class="num-item" data-reveal="up">
+        <span class="num-val"><span data-count="5" data-suffix=" ans">5 ans</span></span>
+        <span class="num-label">D'excellence</span>
+      </div>
+      <div class="num-item" data-reveal="up" data-delay="1">
+        <span class="num-val"><span data-count="50" data-suffix="+">50+</span></span>
+        <span class="num-label">Chambres & suites</span>
+      </div>
+      <div class="num-item" data-reveal="up" data-delay="2">
+        <span class="num-val"><span data-count="10000" data-suffix="+">10000+</span></span>
+        <span class="num-label">Clients accueillis</span>
+      </div>
+      <div class="num-item" data-reveal="up" data-delay="3">
+        <span class="num-val"><span data-count="40" data-suffix="+">40+</span></span>
+        <span class="num-label">Collaborateurs</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="container">
+    <div class="team-header" data-reveal="up" style="padding-top:100px">
+      <div class="eyebrow" style="display:inline-flex;margin:0 auto 20px">Les visages</div>
+      <h2>Notre Équipe</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card" data-reveal="up">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop" alt="Directeur Général" loading="lazy" width="600" height="800">
+        <div class="team-card-overlay"></div>
+        <div class="team-card-body">
+          <div class="team-name">Directeur Général</div>
+          <div class="team-role">Direction</div>
+          <div class="team-bio">Vision stratégique et excellence opérationnelle au service de l'expérience client depuis la fondation.</div>
+        </div>
+      </div>
+      <div class="team-card" data-reveal="up" data-delay="1">
+        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&q=80&auto=format&fit=crop" alt="Chef Executive" loading="lazy" width="600" height="800">
+        <div class="team-card-overlay"></div>
+        <div class="team-card-body">
+          <div class="team-name">Chef Executive</div>
+          <div class="team-role">Restaurant Le Sylvania</div>
+          <div class="team-bio">Formé en France et en Afrique du Sud, il apporte une vision unique de la cuisine africaine contemporaine.</div>
+        </div>
+      </div>
+      <div class="team-card" data-reveal="up" data-delay="2">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop" alt="Responsable Hébergement" loading="lazy" width="600" height="800">
+        <div class="team-card-overlay"></div>
+        <div class="team-card-body">
+          <div class="team-name">Responsable Hébergement</div>
+          <div class="team-role">Front Office & Chambres</div>
+          <div class="team-bio">Garant de la qualité de chaque séjour, de l'arrivée à la departure, avec une attention au moindre détail.</div>
+        </div>
+      </div>
+      <div class="team-card" data-reveal="up" data-delay="3">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop" alt="Responsable Événements" loading="lazy" width="600" height="800">
+        <div class="team-card-overlay"></div>
+        <div class="team-card-body">
+          <div class="team-name">Responsable Événements</div>
+          <div class="team-role">Séminaires & Célébrations</div>
+          <div class="team-bio">Spécialiste de la coordination d'événements d'envergure, du séminaire corporate au mariage de prestige.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="container">
+    <div class="eyebrow" style="display:inline-flex;margin:0 auto 16px" data-reveal="up">Rejoignez-nous</div>
+    <h2 data-reveal="up" data-delay="1">Vivez l'expérience<br>Geneva Hôtel</h2>
+    <p data-reveal="up" data-delay="2">Réservez votre séjour dès aujourd'hui et laissez-nous vous montrer pourquoi nous sommes l'hôtel de premier choix à Douala.</p>
+    <div class="about-cta-btns" data-reveal="up" data-delay="3">
+      <a href="contact.html#booking" class="btn btn-gold"><span>Réserver maintenant</span></a>
+      <a href="contact.html" class="btn btn-outline"><span>Nous contacter</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Geneva<em>.</em></span>
+        <p>Votre havre de confort et de beauté tropicale au cœur de Douala. Home in better — depuis 2019.</p>
+        <div class="footer-socials">
+          <a href="https://facebook.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">f</a>
+          <a href="https://instagram.com/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">ig</a>
+          <a href="https://twitter.com/genevahotel237" class="footer-social" target="_blank" rel="noopener">𝕏</a>
+          <a href="https://linkedin.com/company/genevahoteldouala" class="footer-social" target="_blank" rel="noopener">in</a>
+        </div>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Hôtel</div><ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="hebergement.html">Chambres</a></li>
+        <li><a href="restaurant.html">Restaurant</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="evenements.html">Événements</a></li>
+      </ul></div>
+      <div class="footer-col"><div class="footer-col-title">À Propos</div><ul>
+        <li><a href="a-propos.html">Notre Histoire</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><ul>
+        <li><a href="tel:+237659898989">+237 6 59 89 89 89</a></li>
+        <li><a href="mailto:contact@genevahoteldouala.com">contact@genevahoteldouala.com</a></li>
+        <li><a href="https://maps.google.com" target="_blank" rel="noopener">Rue Socaver Ndogbong, Douala</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 <span style="color:var(--gold)">Geneva Hôtel</span> — Tous droits réservés.</div>
+      <div class="footer-copy"><a href="#" style="margin-right:20px">Mentions légales</a><a href="#">Confidentialité</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/237659898989" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="main.js"></script>
+</body>
+</html>
