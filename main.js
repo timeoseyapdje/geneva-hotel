@@ -117,3 +117,90 @@ if (counterSection) {
   }, { threshold: 0.3 });
   co.observe(counterSection);
 }
+
+// ── Google Translate i18n ────────────────────
+function initLanguageSwitcher() {
+  // 1. Inject hidden Google Translate div
+  const container = document.createElement('div');
+  container.id = 'google_translate_element';
+  container.style.display = 'none';
+  document.body.appendChild(container);
+
+  // 2. Setup init function
+  window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'fr',
+      includedLanguages: 'en,fr',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  };
+
+  // 3. Load script
+  const script = document.createElement('script');
+  script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.head.appendChild(script);
+
+  // 4. Handle language switch clicks
+  const triggerTranslation = (lang) => {
+    const select = document.querySelector('select.goog-te-combo');
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    }
+  };
+
+  // Determine current lang from cookie
+  const getLangCookie = () => {
+    const match = document.cookie.match(/googtrans=\/fr\/([a-z]{2})/);
+    return match ? match[1] : 'fr';
+  };
+
+  const updateActiveStates = () => {
+    const currentLang = getLangCookie();
+    document.querySelectorAll('.nav-lang a').forEach(a => {
+      if(a.dataset.lang === currentLang) {
+        a.classList.add('active');
+      } else {
+        a.classList.remove('active');
+      }
+    });
+  };
+
+  // Set initial states
+  setTimeout(updateActiveStates, 500);
+
+  document.querySelectorAll('.nav-lang a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = e.target.dataset.lang;
+      
+      // If switching to French (default), we can also clear the cookie and reload, 
+      // or just select "fr" if available in combo.
+      // Often, setting combo to 'fr' works, or restoring original text works.
+      const select = document.querySelector('select.goog-te-combo');
+      if (lang === 'fr') {
+        // Clear cookies to revert completely
+        document.cookie = 'googtrans=/fr/fr; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=/fr/fr; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=' + window.location.hostname + '; path=/;';
+        // The safest way to revert is reload, but try to trigger translation first
+        if (select) {
+           select.value = 'fr';
+           select.dispatchEvent(new Event('change'));
+        } else {
+           window.location.reload();
+        }
+        
+        // Ensure UI updates if no reload happens
+        setTimeout(() => window.location.reload(), 300);
+      } else {
+        triggerTranslation(lang);
+      }
+      
+      // update active classes locally before reload
+      document.querySelectorAll('.nav-lang a').forEach(link => link.classList.remove('active'));
+      e.target.classList.add('active');
+    });
+  });
+}
+initLanguageSwitcher();
